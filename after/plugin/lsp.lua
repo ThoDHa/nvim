@@ -6,8 +6,8 @@ lsp.ensure_installed({
 	'tsserver',
 	'jdtls',
 	'eslint',
-	'sumneko_lua',
 	'rust_analyzer',
+    	'pyright'
 })
 
 local cmp = require('cmp')
@@ -43,5 +43,4 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
-
 
