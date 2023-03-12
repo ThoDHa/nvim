@@ -23,7 +23,9 @@ require('packer').startup(function(use)
 
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use('ThePrimeagen/harpoon')
+  use('nvim-treesitter/nvim-treesitter-textobjects')
+
+	use('ThePrimeagen/harpoon')
   use('mbbill/undotree')
 
   use('tpope/vim-fugitive')
@@ -51,6 +53,24 @@ require('packer').startup(function(use)
       {'rafamadriz/friendly-snippets'},
     }
   }
+
+  use {
+    'mfussenegger/nvim-dap',
+
+    -- NOTE: And you can specify dependencies as well
+    requires = {
+      -- Creates a beautiful debugger UI
+      'rcarriga/nvim-dap-ui',
+
+      -- Installs the debug adapters for you
+      'williamboman/mason.nvim',
+      'jay-babu/mason-nvim-dap.nvim',
+
+      -- Add your own debuggers here
+      'mfussenegger/nvim-dap-python',
+      'theHamsta/nvim-dap-virtual-text'
+    }
+  }
   -- Color Scheme
   use ({
     'rose-pine/neovim',
@@ -63,27 +83,6 @@ require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
-
--- When we are bootstrapping a configuration, it doesn't
--- make sense to execute the rest of the init.lua.
---
--- You'll need to restart nvim, and then it will work.
-if is_bootstrap then
-  print '=================================='
-  print '    Plugins are being installed'
-  print '    Wait until Packer completes,'
-  print '       then restart nvim'
-  print '=================================='
-  return
-end
-
--- Automatically source and re-compile packer whenever you save this init.lua
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', {
-  command = 'source <afile> | PackerCompile',
-  group = packer_group,
-  pattern = vim.fn.expand '$MYVIMRC',
-})
 
 
 -- The line beneath this is called `modeline`. See `:help modeline`
