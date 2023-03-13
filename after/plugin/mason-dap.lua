@@ -10,5 +10,5 @@ local mason = require('mason-nvim-dap').setup {
         'debugpy'
     },
 }
--- require('mason-nvim-dap').setup_handlers {}
+ require('mason-nvim-dap').setup_handlers {}
 

@@ -60,29 +60,36 @@ require('packer').startup(function(use)
     requires = {
       -- Creates a beautiful debugger UI
       'rcarriga/nvim-dap-ui',
+      'theHamsta/nvim-dap-virtual-text',
 
       -- Installs the debug adapters for you
       'williamboman/mason.nvim',
       'jay-babu/mason-nvim-dap.nvim',
 
       -- Add your own debuggers here
-      'mfussenegger/nvim-dap-python',
-      'theHamsta/nvim-dap-virtual-text'
+      'mfussenegger/nvim-dap-python'
     }
   }
   -- Color Scheme
   use ({
-    'rose-pine/neovim',
-    as = 'rose-pine',
+    'martinsione/darkplus.nvim',
+    as = 'darkplus',
     config = function()
-      vim.cmd('colorscheme rose-pine')
+      vim.cmd('colorscheme darkplus')
     end
   })
+
+--  use ({
+--    'rose-pine/neovim',
+--    as = 'rose-pine',
+--    config = function()
+--      vim.cmd('colorscheme rose-pine')
+--    end
+--  })
   if is_bootstrap then
     require('packer').sync()
   end
 end)
-
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

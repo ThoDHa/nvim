@@ -11,7 +11,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- greatest remap ever
-vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set("x", "<leader>x", "\"_dP")
 
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set("n", "<leader>y", "\"+y")
@@ -19,8 +19,8 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set("n", "<leader>P", "\"+p")
-vim.keymap.set("v", "<leader>P", "\"+p")
+vim.keymap.set("n", "<leader>p", "\"+p")
+vim.keymap.set("v", "<leader>p", "\"+p")
 vim.keymap.set("n", "<leader>P", "\"+P")
 
 

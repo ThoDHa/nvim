@@ -7,7 +7,10 @@ lsp.ensure_installed({
 	--'jdtls',
     --'eslint',
     --'rust_analyzer',
-    'pyright'
+    'pyright',
+    'marksman',
+    'clangd',
+    'lua_ls'
 })
 
 local cmp = require('cmp')
