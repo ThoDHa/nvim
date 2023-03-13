@@ -94,3 +94,26 @@ lsp.setup_nvim_cmp({
 end
 
 lsp.setup()
+
+--vim.diagnostic.config({
+--  virtual_text = {
+--    -- source = "always",  -- Or "if_many"
+--    prefix = '●', -- Could be '■', '▎', 'x'
+--  },
+--  severity_sort = true,
+--  float = {
+--    source = "always",  -- Or "if_many"
+--  },
+--})
+
+-- This will auto float errors
+--OpenDiagFloat = function ()
+--  for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+--    if vim.api.nvim_win_get_config(winid).zindex then
+--      return
+--    end
+--  end
+--  vim.diagnostic.open_float({focusable = false})
+--end
+--
+--vim.cmd([[autocmd CursorHold <buffer> lua OpenDiagFloat()]])
