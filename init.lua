@@ -53,6 +53,7 @@ require('packer').startup(function(use)
     }
   }
 
+  -- This is for Debugging UI
   use {
     'mfussenegger/nvim-dap',
 
@@ -67,25 +68,29 @@ require('packer').startup(function(use)
       'jay-babu/mason-nvim-dap.nvim',
 
       -- Add your own debuggers here
-      'mfussenegger/nvim-dap-python'
+      'mfussenegger/nvim-dap-python',
+      'mfussenegger/nvim-dap-vscode-js'
     }
   }
-  -- Color Scheme
-  use ({
-    'martinsione/darkplus.nvim',
-    as = 'darkplus',
-    config = function()
-      vim.cmd('colorscheme darkplus')
-    end
-  })
 
+  -- Liniting
+  use 'mfussenegger/nvim-lint'
+  -- Color Scheme
 --  use ({
---    'rose-pine/neovim',
---    as = 'rose-pine',
+--    'martinsione/darkplus.nvim',
+--    as = 'darkplus',
 --    config = function()
---      vim.cmd('colorscheme rose-pine')
+--      vim.cmd('colorscheme darkplus')
 --    end
 --  })
+
+  use ({
+    'rose-pine/neovim',
+    as = 'rose-pine',
+    config = function()
+      vim.cmd('colorscheme rose-pine')
+    end
+  })
   if is_bootstrap then
     require('packer').sync()
   end
