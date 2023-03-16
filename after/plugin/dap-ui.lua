@@ -19,7 +19,32 @@ dapui.setup {
             terminate = '⏹',
         },
     },
-}
+    layouts = { {
+        elements = { {
+            id = "scopes",
+            size = 0.50
+          }, {
+            id = "breakpoints",
+            size = 0.30
+          }, {
+            id = "stacks",
+            size = 0.10
+          }, {
+            id = "watches",
+            size = 0.10
+          } },
+        position = "right",
+        size =30
+      }, {
+        elements = { {
+            id = "console",
+            size = 0.5
+          } },
+        position = "bottom",
+        size = 20
+      } }
+
+,}
 
 dap.listeners.after.event_initialized['dapui_config'] = dapui.open
 dap.listeners.before.event_terminated['dapui_config'] = dapui.close
