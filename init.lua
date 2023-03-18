@@ -72,8 +72,6 @@ require('packer').startup(function(use)
       'mfussenegger/nvim-dap-vscode-js'
     }
   }
-
-  -- Liniting
   use 'mfussenegger/nvim-lint'
   -- Color Scheme
 --  use ({
@@ -83,18 +81,28 @@ require('packer').startup(function(use)
 --      vim.cmd('colorscheme darkplus')
 --    end
 --  })
-
-  use ({
-    'rose-pine/neovim',
-    as = 'rose-pine',
-    config = function()
-      vim.cmd('colorscheme rose-pine')
-    end
-  })
+  use 'navarasu/onedark.nvim'
+--  use ({
+--    'rose-pine/neovim',
+--    as = 'rose-pine',
+--    config = function()
+--      vim.cmd('colorscheme rose-pine')
+--    end
+--  })
   if is_bootstrap then
     require('packer').sync()
   end
 end)
-
+-- Lua
+require('onedark').setup {
+--  style = 'dark'
+--  style = 'darker'
+--  style = 'cool'
+  style = 'deep'
+--  style = 'warm'
+--  style = 'warmer'
+}
+require('onedark').load()
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--
