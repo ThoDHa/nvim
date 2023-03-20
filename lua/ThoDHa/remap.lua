@@ -11,17 +11,19 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- greatest remap ever
+-- Paste but don't put the current text into register
 vim.keymap.set("x", "<leader>x", "\"_dP")
 
 -- next greatest remap ever : asbjornHaland
+-- Yank into system clipboard
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("n", "<leader>yy", "\"+Y")
 
--- next greatest remap ever : asbjornHaland
+-- paste from system clipboard
 vim.keymap.set("n", "<leader>p", "\"+p")
 vim.keymap.set("v", "<leader>p", "\"+p")
-vim.keymap.set("n", "<leader>P", "\"+P")
+vim.keymap.set("n", "<leader>pp", "\"+P")
 
 
 vim.keymap.set("n", "<leader>d", "\"_d")
