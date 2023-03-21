@@ -24,13 +24,14 @@ require('packer').startup(function(use)
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('nvim-treesitter/nvim-treesitter-textobjects')
 
-	use('ThePrimeagen/harpoon')
+  use('ThePrimeagen/harpoon')
   use('mbbill/undotree')
 
   use('tpope/vim-fugitive')
   use 'tpope/vim-rhubarb'
   use 'lewis6991/gitsigns.nvim'
 
+  -- LSP Support
   use {
     'VonHeikemen/lsp-zero.nvim',
     requires = {
@@ -53,7 +54,10 @@ require('packer').startup(function(use)
     }
   }
 
-  -- This is for Debugging UI
+  -- This is for linting...
+  use 'mfussenegger/nvim-lint'
+
+  -- This is for Debugging support and UI
   use {
     'mfussenegger/nvim-dap',
 
@@ -72,37 +76,32 @@ require('packer').startup(function(use)
       'mfussenegger/nvim-dap-vscode-js'
     }
   }
-  use 'mfussenegger/nvim-lint'
-  -- Color Scheme
---  use ({
---    'martinsione/darkplus.nvim',
---    as = 'darkplus',
---    config = function()
---      vim.cmd('colorscheme darkplus')
---    end
---  })
+
+  -- Color Schemes
   use 'navarasu/onedark.nvim'
---  use ({
---    'rose-pine/neovim',
---    as = 'rose-pine',
---    config = function()
---      vim.cmd('colorscheme rose-pine')
---    end
---  })
-  if is_bootstrap then
-    require('packer').sync()
-  end
-end)
--- Lua
-require('onedark').setup {
---  style = 'dark'
---  style = 'darker'
---  style = 'cool'
-  style = 'deep'
---  style = 'warm'
---  style = 'warmer'
-}
-require('onedark').load()
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
---
+
+  --  use 'martinsione/darkplus.nvim',
+  --  use ({
+    --    'rose-pine/neovim',
+    --    as = 'rose-pine',
+    --    config = function()
+      --      vim.cmd('colorscheme rose-pine')
+      --    end
+      --  })
+      if is_bootstrap then
+        require('packer').sync()
+      end
+    end)
+    -- Lua
+    require('onedark').setup {
+      --  style = 'dark'
+      style = 'darker'
+      --  style = 'cool'
+      --  style = 'deep'
+      --  style = 'warm'
+      --  style = 'warmer'
+    }
+    require('onedark').load()
+    -- The line beneath this is called `modeline`. See `:help modeline`
+    -- vim: ts=2 sts=2 sw=2 et
+    --
