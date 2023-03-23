@@ -1,68 +1,75 @@
 require("ThoDHa")
 
 -- Install packer
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-local is_bootstrap = false
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  is_bootstrap = true
-  vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
-  vim.cmd [[packadd packer.nvim]]
-end
-
-require('packer').startup(function(use)
-
-  -- Package manager
-  use 'wbthomason/packer.nvim'
-
-  -- Telescope
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    -- or                            , branch = '0.1.x',
-    requires = { {'nvim-lua/plenary.nvim'} }
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system {
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
   }
+end
+vim.opt.rtp:prepend(lazypath)
 
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use('nvim-treesitter/nvim-treesitter-textobjects')
+require('lazy').setup({
+  -- Telescope
+  {
+    'nvim-telescope/telescope.nvim', version = '*',
+    dependencies = {'nvim-lua/plenary.nvim'},
+  },
 
-  use('ThePrimeagen/harpoon')
-  use('mbbill/undotree')
+  {
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects'
+    },
+    config = function()
+      pcall(require('nvim-treesitter.install').update { with_sync = true })
+    end,
+  },
 
-  use('tpope/vim-fugitive')
-  use 'tpope/vim-rhubarb'
-  use 'lewis6991/gitsigns.nvim'
+  'ThePrimeagen/harpoon',
+  'mbbill/undotree',
+
+  'tpope/vim-fugitive',
+  'tpope/vim-rhubarb',
+  'lewis6991/gitsigns.nvim',
 
   -- LSP Support
-  use {
+  {
     'VonHeikemen/lsp-zero.nvim',
-    requires = {
+    dependencies = {
       -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      {'williamboman/mason.nvim'},
-      {'williamboman/mason-lspconfig.nvim'},
+      'neovim/nvim-lspconfig',
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
 
       -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'saadparwaiz1/cmp_luasnip'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-nvim-lua'},
+      'hrsh7th/nvim-cmp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'saadparwaiz1/cmp_luasnip',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lua',
 
       -- Snippets
-      {'L3MON4D3/LuaSnip'},
-      {'rafamadriz/friendly-snippets'},
-    }
-  }
+      'L3MON4D3/LuaSnip',
+      'rafamadriz/friendly-snippets',
+    },
+  },
 
   -- This is for linting...
-  use 'mfussenegger/nvim-lint'
+  'mfussenegger/nvim-lint',
 
   -- This is for Debugging support and UI
-  use {
+  {
     'mfussenegger/nvim-dap',
 
     -- NOTE: And you can specify dependencies as well
-    requires = {
+    dependencies = {
       -- Creates a beautiful debugger UI
       'rcarriga/nvim-dap-ui',
       'theHamsta/nvim-dap-virtual-text',
@@ -74,11 +81,12 @@ require('packer').startup(function(use)
       -- Add your own debuggers here
       'mfussenegger/nvim-dap-python',
       'mfussenegger/nvim-dap-vscode-js'
-    }
-  }
+    },
+  },
 
   -- Color Schemes
-  use 'navarasu/onedark.nvim'
+  'navarasu/onedark.nvim'
+}, {})
 
   --  use 'martinsione/darkplus.nvim',
   --  use ({
@@ -88,11 +96,8 @@ require('packer').startup(function(use)
       --      vim.cmd('colorscheme rose-pine')
       --    end
       --  })
-      if is_bootstrap then
-        require('packer').sync()
-      end
-    end)
     -- Lua
+    --
     require('onedark').setup {
       --  style = 'dark'
       style = 'darker'
