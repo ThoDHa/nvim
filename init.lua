@@ -12,6 +12,7 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   }
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
@@ -84,10 +85,20 @@ require('lazy').setup({
     },
   },
 
+  -- Status
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = {
+        { 'kyazdani42/nvim-web-devicons', opt = true },
+    }
+  },
+
   -- Color Schemes
   'navarasu/onedark.nvim'
+  --'shaunsingh/nord.nvim'
 }, {})
-
+  require('lualine').setup()
+  --vim.cmd[[colorscheme nord]]
   --  use 'martinsione/darkplus.nvim',
   --  use ({
     --    'rose-pine/neovim',
@@ -100,13 +111,12 @@ require('lazy').setup({
     --
     require('onedark').setup {
       --  style = 'dark'
-      style = 'darker'
+      -- style = 'darker'
       --  style = 'cool'
       --  style = 'deep'
       --  style = 'warm'
-      --  style = 'warmer'
+      style = 'warmer'
     }
-    require('onedark').load()
-    -- The line beneath this is called `modeline`. See `:help modeline`
-    -- vim: ts=2 sts=2 sw=2 et
-    --
+     require('onedark').load()
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
