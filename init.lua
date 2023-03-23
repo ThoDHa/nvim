@@ -94,8 +94,8 @@ require('lazy').setup({
   },
 
   -- Color Schemes
-  'navarasu/onedark.nvim'
-  --'shaunsingh/nord.nvim'
+  'navarasu/onedark.nvim',
+  -- 'shaunsingh/nord.nvim'
 }, {})
   require('lualine').setup()
   --vim.cmd[[colorscheme nord]]
@@ -112,11 +112,11 @@ require('lazy').setup({
     require('onedark').setup {
       --  style = 'dark'
       -- style = 'darker'
-      --  style = 'cool'
-      --  style = 'deep'
+      -- style = 'cool'
+      style = 'deep'
       --  style = 'warm'
-      style = 'warmer'
+      -- style = 'warmer'
     }
-     require('onedark').load()
+    require('onedark').load()
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
