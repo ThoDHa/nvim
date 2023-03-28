@@ -37,8 +37,9 @@ require('lazy').setup({
 
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
-  'lewis6991/gitsigns.nvim',
+  'tpope/vim-sleuth',
 
+  'lewis6991/gitsigns.nvim',
   -- LSP Support
   {
     'VonHeikemen/lsp-zero.nvim',

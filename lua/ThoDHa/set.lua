@@ -34,3 +34,20 @@ vim.opt.updatetime = 50
 
 --vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 vim.o.mouse =''
+-- hides the top banner by default
+vim.g.netrw_banner=0
+-- Tree view
+vim.g.netrw_liststyle=3
+-- Keep the directory you accessed previously.
+vim.g.netrw_keepdir=1
+
+-- Keep signcolumn on by default
+vim.wo.signcolumn = 'yes'
+
+-- Decrease update time
+vim.o.updatetime = 250
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
