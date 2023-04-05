@@ -94,8 +94,6 @@ require('lazy').setup({
     }
   },
 
-  'rmagatti/auto-session',
-
   -- Color Schemes
   'navarasu/onedark.nvim'
   -- 'shaunsingh/nord.nvim'
