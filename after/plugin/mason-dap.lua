@@ -9,6 +9,5 @@ local mason = require('mason-nvim-dap').setup {
         -- Update this to ensure that you have the debuggers for the langs you want
         'debugpy'
     },
+    handlers = {},
 }
- require('mason-nvim-dap').setup_handlers {}
-
