@@ -30,6 +30,11 @@ lsp.setup_nvim_cmp({
 	mapping = cmp_mappings
 })
 
+vim.diagnostic.config({
+    underline=true,
+    virtual_text = false
+})
+
 --lsp.on_attach(function(client, bufnr)
 --	local opts = {buffer = bufnr, remap = false}
 --
