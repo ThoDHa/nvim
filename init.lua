@@ -42,6 +42,7 @@ require('lazy').setup({
   'lewis6991/gitsigns.nvim',
   -- LSP Support
   {
+    branch = 'v2.x',
     'VonHeikemen/lsp-zero.nvim',
     dependencies = {
       -- LSP Support
@@ -99,18 +100,8 @@ require('lazy').setup({
   -- 'shaunsingh/nord.nvim'
 
 }, {})
+
   require('lualine').setup()
-  --vim.cmd[[colorscheme nord]]
-  --  use 'martinsione/darkplus.nvim',
-  --  use ({
-    --    'rose-pine/neovim',
-    --    as = 'rose-pine',
-    --    config = function()
-      --      vim.cmd('colorscheme rose-pine')
-      --    end
-      --  })
-    -- Lua
-    --
     require('onedark').setup {
       --  style = 'dark'
       -- style = 'darker'
