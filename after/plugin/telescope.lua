@@ -29,3 +29,17 @@ vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch curren
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
 
+vim.api.nvim_create_augroup('startup', { clear = true })
+vim.api.nvim_create_autocmd('VimEnter', {
+  group = 'startup',
+  pattern = '*',
+  callback = function()
+    -- Open file browser if argument is a folder
+    local arg = vim.api.nvim_eval('argv(0)')
+    if arg and (vim.fn.isdirectory(arg) ~= 0 or arg == "") then
+      vim.defer_fn(function()
+        builtin.find_files()
+      end, 10)
+    end
+  end
+})

@@ -64,6 +64,9 @@ require('lazy').setup({
     },
   },
 
+  -- This is for formatting 
+  'jose-elias-alvarez/null-ls.nvim',
+
   -- This is for linting...
   'mfussenegger/nvim-lint',
 
@@ -96,9 +99,20 @@ require('lazy').setup({
   },
 
   -- Color Schemes
-  'navarasu/onedark.nvim'
-  -- 'shaunsingh/nord.nvim'
-
+  'navarasu/onedark.nvim',
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  }
 }, {})
 
   require('lualine').setup()
@@ -111,5 +125,6 @@ require('lazy').setup({
       -- style = 'warmer'
     }
      require('onedark').load()
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
