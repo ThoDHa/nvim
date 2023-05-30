@@ -48,3 +48,5 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
+vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", { desc = 'Goto the next buffer' })
+vim.keymap.set("n", "<leader>bp", "<cmd>bprev<CR>", { desc = 'Goto the previous buffer' })
