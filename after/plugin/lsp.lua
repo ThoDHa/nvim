@@ -32,7 +32,7 @@ lsp.setup_nvim_cmp({
 
 vim.diagnostic.config({
     underline=true,
-    virtual_text = false
+    virtual_text = true 
 })
 
 --lsp.on_attach(function(client, bufnr)
