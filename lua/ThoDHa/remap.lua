@@ -50,3 +50,4 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", { desc = 'Goto the next buffer' })
 vim.keymap.set("n", "<leader>bp", "<cmd>bprev<CR>", { desc = 'Goto the previous buffer' })
+vim.keymap.set("n", "<leader>b", "<cmd>bdel<CR>", { desc = 'Delete current buffer' })
