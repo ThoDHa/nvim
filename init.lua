@@ -32,11 +32,15 @@ require('lazy').setup({
     end,
   },
 
-  'ThePrimeagen/harpoon',
+  {
+    'ThePrimeagen/harpoon',
+    event = "VeryLazy",
+  },
+
   'mbbill/undotree',
 
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
+  --'tpope/vim-fugitive',
+  --'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
 
   'lewis6991/gitsigns.nvim',
@@ -68,12 +72,12 @@ require('lazy').setup({
   'jose-elias-alvarez/null-ls.nvim',
 
   -- This is for linting...
-  'mfussenegger/nvim-lint',
+  --'mfussenegger/nvim-lint',
 
   -- This is for Debugging support and UI
   {
     'mfussenegger/nvim-dap',
-
+    event = "VeryLazy",
     -- NOTE: And you can specify dependencies as well
     dependencies = {
       -- Creates a beautiful debugger UI
@@ -100,6 +104,8 @@ require('lazy').setup({
 
   -- Color Schemes
   'navarasu/onedark.nvim',
+
+  -- Does a popup of possible key maps
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -123,6 +129,7 @@ require('lazy').setup({
       style = 'deep'
       --  style = 'warm'
       -- style = 'warmer'
+      -- style = 'light'
     }
      require('onedark').load()
 

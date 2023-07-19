@@ -36,9 +36,7 @@ vim.keymap.set("v", "<leader>d", "\"_d", { desc = 'Delete and don\'t yank to reg
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "Create new tmux silent quietly"})
-vim.keymap.set("n", "<leader>f", function()
-	vim.lsp.buf.format()
-end, { desc = 'Format file'})
+vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end, { desc = 'Format file'})
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
