@@ -6,8 +6,8 @@ vim.keymap.set('n', '<F5>', dap.continue,{ desc = 'Debug: Enter Debug Mode/Conti
 vim.keymap.set('n', '<F6>', dap.step_into,{ desc = 'Debug: Step Into' } )
 vim.keymap.set('n', '<F7>', dap.step_over,{ desc = 'Debug: Step Over' } )
 vim.keymap.set('n', '<F8>', dap.step_out, {desc = 'Debug: Step out' })
-vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = 'Debug: Toggle BreakPoint' })
-vim.keymap.set('n', '<leader>B', function()
+vim.keymap.set('n', '<leader>sb', dap.toggle_breakpoint, { desc = 'Debug: Toggle BreakPoint' })
+vim.keymap.set('n', '<leader>sB', function()
     dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
 end, { desc = 'Debug: Toggle Conditional BreakPoint' })
 
