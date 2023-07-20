@@ -30,16 +30,16 @@ vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]re
 vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set("n", "<leader>gr", builtin.lsp_references, { desc = '[G]et [R]eferences'})
 vim.keymap.set("n", "<leader>gi", builtin.lsp_implementations, { desc = '[G]et [I]mplementations'})
-vim.keymap.set("n", "<leader>ml", builtin.jumplist, { desc = '[M]ark [L]ist'})
+vim.keymap.set("n", "<leader>ml", builtin.marks, { desc = '[M]ark [L]ist'})
 
 
 
 
 vim.keymap.set('n', '<leader>gfs', builtin.git_files, { desc = '[G]it [F]iles [S]earch '})
-vim.keymap.set("n", "<leader>gb", builtin.jumplist, { desc = '[G]it [B]ranches'})
-vim.keymap.set("n", "<leader>gs", builtin.jumplist, { desc = '[G]it [S]tatus'})
-vim.keymap.set("n", "<leader>gbc", builtin.jumplist, { desc = '[G]it [B]uffer [C]ommits'})
-vim.keymap.set("n", "<leader>gc", builtin.jumplist, { desc = '[G]it [C]ommits'})
+vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = '[G]it [B]ranches'})
+vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = '[G]it [S]tatus'})
+vim.keymap.set("n", "<leader>gbc", builtin.git_bcommits, { desc = '[G]it [B]uffer [C]ommits'})
+vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = '[G]it [C]ommits'})
 
 vim.api.nvim_create_augroup('startup', { clear = true })
 vim.api.nvim_create_autocmd('VimEnter', {

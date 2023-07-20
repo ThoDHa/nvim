@@ -39,8 +39,8 @@ require('lazy').setup({
 
   'mbbill/undotree',
 
-  --'tpope/vim-fugitive',
-  --'tpope/vim-rhubarb',
+  'tpope/vim-fugitive',
+  'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
 
   'lewis6991/gitsigns.nvim',
