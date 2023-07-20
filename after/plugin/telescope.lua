@@ -1,9 +1,15 @@
+require('telescope').setup{
+  defaults = {
+    layout_strategy = 'vertical',
+    layout_config = { height = 0.95 },
+  },
+}
+
 local builtin = require('telescope.builtin')
-  
+
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
  
--- vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
