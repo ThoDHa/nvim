@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
---vim.keymap.set("n", "-", vim.cmd.Ex, { desc = 'Open up Explorer'})
+vim.keymap.set("n", "<leader>-", vim.cmd.Ex, { desc = 'Open up Explorer'})
 
 -- Remap <C-c> to Escape
 vim.keymap.set("i", "<C-c>", "<Esc>")
