@@ -6,11 +6,9 @@ lsp.ensure_installed({
     'jdtls',
     'eslint',
     'rust_analyzer',
-    'pyright',
     'marksman',
     'clangd',
     'lua_ls',
-    'typescript-language-server'
 })
 
 local cmp = require('cmp')
