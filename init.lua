@@ -101,7 +101,7 @@ require('lazy').setup({
         { 'kyazdani42/nvim-web-devicons'},
     }
   },
-
+  'rmagatti/auto-session',
   -- Color Schemes
   'navarasu/onedark.nvim',
 
@@ -132,6 +132,10 @@ require('lazy').setup({
       -- style = 'light'
     }
      require('onedark').load()
+  require("auto-session").setup {
+      log_level = "error",
+      auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
+    }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
