@@ -93,7 +93,7 @@ require('lazy').setup({
       'mfussenegger/nvim-dap-vscode-js'
     },
   },
-
+  'mfussenegger/nvim-jdtls',
   -- Status
   {
     'nvim-lualine/lualine.nvim',
