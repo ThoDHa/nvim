@@ -123,7 +123,7 @@ require('lazy').setup({
 
   require('lualine').setup()
     require('onedark').setup {
-      --  style = 'dark'
+      -- style = 'dark'
       -- style = 'darker'
       -- style = 'cool'
       style = 'deep'
