@@ -32,7 +32,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
---vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
+vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 vim.o.mouse =''
 -- hides the top banner by default
 vim.g.netrw_banner=0

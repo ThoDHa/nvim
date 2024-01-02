@@ -45,3 +45,6 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>S", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { desc = "Open up subsitution for current word" })
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+vim.keymap.set("n", "<leader>M", "<c-w>_<c-w>|", { desc = 'Maximize current window' })
+vim.keymap.set("n", "<leader>m", "<c-w>=", { desc = 'Change all windows to same size'})
