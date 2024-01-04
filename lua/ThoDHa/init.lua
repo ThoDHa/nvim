@@ -22,4 +22,9 @@ vim.api.nvim_create_autocmd("BufReadPost",
         pattern = {"*.md"},
         command = "set colorcolumn=81"
     })
+vim.api.nvim_create_autocmd("CursorHoldI",
+    {
+        pattern = {"*"},
+        command = "let &undolevels = &undolevels"
+    })
 
