@@ -44,11 +44,10 @@ vim.g.netrw_keepdir=1
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
 
--- Decrease update time
-vim.o.updatetime = 250
+-- Change update time to 5 seconds.
+vim.o.updatetime = 5000
 vim.o.timeout = true
 vim.o.timeoutlen = 300
-
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 vim.o.background = 'dark'
