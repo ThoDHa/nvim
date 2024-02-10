@@ -18,7 +18,7 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = vim.fn.stdpath('data') .. "/.vim/undodir"
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false
@@ -45,7 +45,7 @@ vim.g.netrw_keepdir=1
 vim.wo.signcolumn = 'yes'
 
 -- Change update time to 5 seconds.
-vim.o.updatetime = 5000
+vim.o.updatetime = 5000 
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 -- Set completeopt to have a better completion experience

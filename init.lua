@@ -104,6 +104,7 @@ require('lazy').setup({
     }
   },
   'rmagatti/auto-session',
+
   -- Color Schemes
   'navarasu/onedark.nvim',
 
@@ -120,6 +121,11 @@ require('lazy').setup({
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
     }
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {}
   }
 }, {})
 
@@ -138,6 +144,6 @@ require('lazy').setup({
       log_level = "error",
       auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
     }
-
+  require("ibl").setup()
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
