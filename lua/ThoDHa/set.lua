@@ -41,6 +41,9 @@ vim.g.netrw_liststyle=3
 -- Keep the directory you accessed previously.
 vim.g.netrw_keepdir=1
 
+-- Enable cursor line highlight
+vim.opt.cursorline = true
+
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
 
