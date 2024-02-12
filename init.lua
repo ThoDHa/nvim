@@ -72,6 +72,7 @@ require('lazy').setup({
             'folke/neodev.nvim',
         },
     },
+
     -- Autocompletion
     {
         'hrsh7th/nvim-cmp',
@@ -136,14 +137,30 @@ require('lazy').setup({
         event = "VeryLazy",
         dependencies = {
             { 'kyazdani42/nvim-web-devicons' },
-        }
+        },
+        opts = {}
     },
     {
         'rmagatti/auto-session',
-        event = "VeryLazy",
+        opts = {
+            log_level = "error",
+            auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+        }
     },
-    -- Color Schemes
-    'navarasu/onedark.nvim',
+    {
+        -- Color Schemes
+        'navarasu/onedark.nvim',
+        opts = {
+            -- style = 'dark'
+            -- style = 'darker'
+            -- style = 'cool'
+            style = 'deep'
+            --  style = 'warm'
+            -- style = 'warmer'
+            -- style = 'light'
+
+        }
+    },
 
     -- Does a popup of possible key maps
     {
@@ -165,10 +182,12 @@ require('lazy').setup({
         main = "ibl",
         opts = {}
     },
+
     {
         'stevearc/dressing.nvim',
         opts = {},
     },
+
     -- install without yarn or npm
     {
         'iamcco/markdown-preview.nvim',
@@ -182,27 +201,15 @@ require('lazy').setup({
             'MarkdownPreviewStop',
         },
     },
+
     {
         'stevearc/oil.nvim',
         event = "VeryLazy",
         opts = {},
         -- Optional dependencies
         dependencies = { "nvim-tree/nvim-web-devicons" },
-    }
+    },
 }, {})
 
-require('lualine').setup()
-require('onedark').setup {
-    -- style = 'dark'
-    -- style = 'darker'
-    -- style = 'cool'
-    style = 'deep'
-    --  style = 'warm'
-    -- style = 'warmer'
-    -- style = 'light'
-}
 require('onedark').load()
-require("auto-session").setup {
-    log_level = "error",
-    auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-}
+--
