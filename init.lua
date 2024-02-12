@@ -1,4 +1,4 @@
-require("ThoDHa")
+require('ThoDHa')
 
 -- Installs lazy
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -33,27 +33,27 @@ require('lazy').setup({
 
     {
         'ThePrimeagen/harpoon',
-        event = "VeryLazy",
+        event = 'VeryLazy',
     },
 
     'mbbill/undotree',
 
     {
         'tpope/vim-fugitive',
-        event = "VeryLazy",
+        event = 'VeryLazy',
     },
     {
         'tpope/vim-rhubarb',
-        event = "VeryLazy",
+        event = 'VeryLazy',
     },
     {
         'tpope/vim-sleuth',
-        event = "VeryLazy",
+        event = 'VeryLazy',
     },
 
     {
         'lewis6991/gitsigns.nvim',
-        event = "VeryLazy"
+        event = 'VeryLazy'
     },
 
     -- LSP Support
@@ -104,13 +104,13 @@ require('lazy').setup({
     -- This is for formatting
     {
         'jose-elias-alvarez/null-ls.nvim',
-        event = "VeryLazy",
+        event = 'VeryLazy',
     },
 
     -- This is for Debugging support and UI
     {
         'mfussenegger/nvim-dap',
-        event = "VeryLazy",
+        event = 'VeryLazy',
         -- NOTE: And you can specify dependencies as well
         dependencies = {
             -- Creates a beautiful debugger UI
@@ -132,17 +132,17 @@ require('lazy').setup({
     -- Status
     {
         'nvim-lualine/lualine.nvim',
-        event = "VeryLazy",
+        event = 'VeryLazy',
         dependencies = {
-            { 'kyazdani42/nvim-web-devicons' },
+            { 'nvim-tree/nvim-web-devicons' },
         },
         opts = {}
     },
     {
         'rmagatti/auto-session',
         opts = {
-            log_level = "error",
-            auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+            log_level = 'error',
+            auto_session_suppress_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
         }
     },
     {
@@ -161,8 +161,8 @@ require('lazy').setup({
     },
     -- Does a popup of possible key maps
     {
-        "folke/which-key.nvim",
-        event = "VeryLazy",
+        'folke/which-key.nvim',
+        event = 'VeryLazy',
         init = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
@@ -174,9 +174,9 @@ require('lazy').setup({
         }
     },
     {
-        "lukas-reineke/indent-blankline.nvim",
-        event = "VeryLazy",
-        main = "ibl",
+        'lukas-reineke/indent-blankline.nvim',
+        event = 'VeryLazy',
+        main = 'ibl',
         opts = {}
     },
     {
@@ -198,16 +198,16 @@ require('lazy').setup({
     },
     {
         'stevearc/oil.nvim',
-        event = "VeryLazy",
+        event = 'VeryLazy',
         opts = {},
         -- Optional dependencies
-        dependencies = { "nvim-tree/nvim-web-devicons" },
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
-		"nvim-pack/nvim-spectre",
-        event = "VeryLazy",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
+    'nvim-pack/nvim-spectre',
+    event = 'VeryLazy',
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+    },
 }, {})
 
 require('onedark').load()
