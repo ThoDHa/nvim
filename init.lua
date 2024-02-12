@@ -106,8 +106,6 @@ require('lazy').setup({
         'jose-elias-alvarez/null-ls.nvim',
         event = "VeryLazy",
     },
-    -- This is for linting...
-    --'mfussenegger/nvim-lint',
 
     -- This is for Debugging support and UI
     {
@@ -128,9 +126,9 @@ require('lazy').setup({
             'mfussenegger/nvim-dap-vscode-js'
         },
     },
-
+    -- This is for linting...
+    --'mfussenegger/nvim-lint',
     --'mfussenegger/nvim-jdtls',
-
     -- Status
     {
         'nvim-lualine/lualine.nvim',
@@ -161,7 +159,6 @@ require('lazy').setup({
 
         }
     },
-
     -- Does a popup of possible key maps
     {
         "folke/which-key.nvim",
@@ -182,12 +179,10 @@ require('lazy').setup({
         main = "ibl",
         opts = {}
     },
-
     {
         'stevearc/dressing.nvim',
         opts = {},
     },
-
     -- install without yarn or npm
     {
         'iamcco/markdown-preview.nvim',
@@ -201,7 +196,6 @@ require('lazy').setup({
             'MarkdownPreviewStop',
         },
     },
-
     {
         'stevearc/oil.nvim',
         event = "VeryLazy",
@@ -209,6 +203,11 @@ require('lazy').setup({
         -- Optional dependencies
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
+		"nvim-pack/nvim-spectre",
+        event = "VeryLazy",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
 }, {})
 
 require('onedark').load()
