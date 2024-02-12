@@ -53,7 +53,8 @@ require('lazy').setup({
 
     {
         'lewis6991/gitsigns.nvim',
-        event = 'VeryLazy'
+        event = 'VeryLazy',
+        opts = {}
     },
 
     -- LSP Support
