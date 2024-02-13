@@ -129,7 +129,10 @@ require('lazy').setup({
     },
     -- This is for linting...
     --'mfussenegger/nvim-lint',
-    --'mfussenegger/nvim-jdtls',
+    {
+        'mfussenegger/nvim-jdtls',
+        event = 'VeryLazy',
+    },
     -- Status
     {
         'nvim-lualine/lualine.nvim',
