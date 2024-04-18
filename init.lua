@@ -164,8 +164,6 @@ require("lazy").setup({
 			"mfussenegger/nvim-dap-vscode-js",
 		},
 	},
-	-- This is for linting...
-	--'mfussenegger/nvim-lint',
 	{
 		"mfussenegger/nvim-jdtls",
 		event = "VeryLazy",
@@ -249,6 +247,11 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
+	},
+	{
+		"sindrets/diffview.nvim",
+		event = "VeryLazy",
+		opts = {},
 	},
 }, {})
 
