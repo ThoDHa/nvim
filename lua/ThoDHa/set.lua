@@ -47,3 +47,7 @@ vim.o.timeoutlen = 300
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
 vim.o.background = "dark"
+
+-- Configure how new splits should be opened
+vim.opt.splitright = true
+vim.opt.splitbelow = true

@@ -132,6 +132,16 @@ require("lazy").setup({
 				timeout_ms = 500,
 				lsp_fallback = true,
 			},
+			keys = {
+				{
+					"<leader>f",
+					function()
+						require("conform").format({ async = true, lsp_fallback = true })
+					end,
+					mode = "",
+					desc = "[F]ormat buffer",
+				},
+			},
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- Conform can also run multiple formatters sequentially
@@ -253,7 +263,135 @@ require("lazy").setup({
 		event = "VeryLazy",
 		opts = {},
 	},
-}, {})
+	{
+		"mfussenegger/nvim-lint",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			local lint = require("lint")
+			lint.linters_by_ft = {
+				markdown = { "markdownlint" },
+			}
+
+			-- To allow other plugins to add linters to require('lint').linters_by_ft,
+			-- instead set linters_by_ft like this:
+			-- lint.linters_by_ft = lint.linters_by_ft or {}
+			-- lint.linters_by_ft['markdown'] = { 'markdownlint' }
+			--
+			-- However, note that this will enable a set of default linters,
+			-- which will cause errors unless these tools are available:
+			-- {
+			--   clojure = { "clj-kondo" },
+			--   dockerfile = { "hadolint" },
+			--   inko = { "inko" },
+			--   janet = { "janet" },
+			--   json = { "jsonlint" },
+			--   markdown = { "vale" },
+			--   rst = { "vale" },
+			--   ruby = { "ruby" },
+			--   terraform = { "tflint" },
+			--   text = { "vale" }
+			-- }
+			--
+			-- You can disable the default linters by setting their filetypes to nil:
+			-- lint.linters_by_ft['clojure'] = nil
+			-- lint.linters_by_ft['dockerfile'] = nil
+			-- lint.linters_by_ft['inko'] = nil
+			-- lint.linters_by_ft['janet'] = nil
+			-- lint.linters_by_ft['json'] = nil
+			-- lint.linters_by_ft['markdown'] = nil
+			-- lint.linters_by_ft['rst'] = nil
+			-- lint.linters_by_ft['ruby'] = nil
+			-- lint.linters_by_ft['terraform'] = nil
+			-- lint.linters_by_ft['text'] = nil
+
+			-- Create autocommand which carries out the actual linting
+			-- on the specified events.
+			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+				group = lint_augroup,
+				callback = function()
+					require("lint").try_lint()
+				end,
+			})
+		end,
+	},
+	{
+		"tpope/vim-fugitive",
+		config = function()
+			vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+
+			local ThePrimeagen_Fugitive = vim.api.nvim_create_augroup("ThePrimeagen_Fugitive", {})
+
+			local autocmd = vim.api.nvim_create_autocmd
+			autocmd("BufWinEnter", {
+				group = ThePrimeagen_Fugitive,
+				pattern = "*",
+				callback = function()
+					if vim.bo.ft ~= "fugitive" then
+						return
+					end
+
+					local bufnr = vim.api.nvim_get_current_buf()
+					local opts = { buffer = bufnr, remap = false }
+					vim.keymap.set("n", "<leader>p", function()
+						vim.cmd.Git("push")
+					end, opts)
+
+					-- rebase always
+					vim.keymap.set("n", "<leader>P", function()
+						vim.cmd.Git({ "pull", "--rebase" })
+					end, opts)
+
+					-- NOTE: It allows me to easily set the branch i am pushing and any tracking
+					-- needed if i did not set the branch up correctly
+					vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts)
+				end,
+			})
+
+			vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>")
+			vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>")
+		end,
+	},
+	{
+		"folke/trouble.nvim",
+		config = function()
+			require("trouble").setup({
+				icons = false,
+			})
+
+			vim.keymap.set("n", "<leader>tt", function()
+				require("trouble").toggle()
+			end)
+
+			vim.keymap.set("n", "[t", function()
+				require("trouble").next({ skip_groups = true, jump = true })
+			end)
+
+			vim.keymap.set("n", "]t", function()
+				require("trouble").previous({ skip_groups = true, jump = true })
+			end)
+		end,
+	},
+}, {
+	ui = {
+		-- If you are using a Nerd Font: set icons to an empty table which will use the
+		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
+		icons = vim.g.have_nerd_font and {} or {
+			cmd = "⌘",
+			config = "🛠",
+			event = "📅",
+			ft = "📂",
+			init = "⚙",
+			keys = "🗝",
+			plugin = "🔌",
+			runtime = "💻",
+			require = "🌙",
+			source = "📄",
+			start = "🚀",
+			task = "📌",
+			lazy = "💤 ",
+		},
+	},
+})
 
 require("onedark").load()
---
