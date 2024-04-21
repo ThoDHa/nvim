@@ -1,17 +1,18 @@
 vim.defer_fn(function()
-	require'nvim-treesitter.configs'.setup {
+	require("nvim-treesitter.configs").setup({
 		-- A list of parser names, or "all" (the five listed parsers should always be installed)
 		ensure_installed = {
-			'vimdoc',
-			'vim',
-			'markdown',
-			'javascript',
-			'typescript',
+			"vimdoc",
+			"vim",
+			"markdown",
+			"javascript",
+			"typescript",
 			"c",
 			"java",
 			"lua",
 			"vim",
 			"rust",
+			"go",
 		},
 
 		-- Install parsers synchronously (only applied to `ensure_installed`)
@@ -25,5 +26,5 @@ vim.defer_fn(function()
 			enable = true,
 			additional_vim_regex_highlighting = false,
 		},
-	}
+	})
 end, 0)

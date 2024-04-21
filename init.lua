@@ -54,8 +54,12 @@ require("lazy").setup({
 		"ThePrimeagen/harpoon",
 		event = "VeryLazy",
 	},
-
-	"mbbill/undotree",
+	{
+		"mbbill/undotree",
+		config = function()
+			vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Undo Tree" })
+		end,
+	},
 	{
 		"numToStr/Comment.nvim",
 		event = "VeryLazy",
@@ -145,7 +149,7 @@ require("lazy").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- Conform can also run multiple formatters sequentially
-				python = { "isort", "black" },
+				python = { "black" },
 				--
 				-- You can use a sub-list to tell conform to run *until* a formatter
 				-- is found.
@@ -163,7 +167,7 @@ require("lazy").setup({
 			-- Creates a beautiful debugger UI
 			"rcarriga/nvim-dap-ui",
 			"nvim-neotest/nvim-nio",
-			"theHamsta/nvim-dap-virtual-text",
+			{ "theHamsta/nvim-dap-virtual-text", opts = {} },
 
 			-- Installs the debug adapters for you
 			"williamboman/mason.nvim",
@@ -247,7 +251,12 @@ require("lazy").setup({
 	{
 		"stevearc/oil.nvim",
 		event = "VeryLazy",
-		opts = {},
+		opts = function()
+			vim.keymap.set("n", "<leader>-", function()
+				require("oil").open_float()
+			end, { desc = "Open parent directory" })
+		end,
+
 		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
@@ -319,37 +328,6 @@ require("lazy").setup({
 		"tpope/vim-fugitive",
 		config = function()
 			vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-
-			local ThePrimeagen_Fugitive = vim.api.nvim_create_augroup("ThePrimeagen_Fugitive", {})
-
-			local autocmd = vim.api.nvim_create_autocmd
-			autocmd("BufWinEnter", {
-				group = ThePrimeagen_Fugitive,
-				pattern = "*",
-				callback = function()
-					if vim.bo.ft ~= "fugitive" then
-						return
-					end
-
-					local bufnr = vim.api.nvim_get_current_buf()
-					local opts = { buffer = bufnr, remap = false }
-					vim.keymap.set("n", "<leader>p", function()
-						vim.cmd.Git("push")
-					end, opts)
-
-					-- rebase always
-					vim.keymap.set("n", "<leader>P", function()
-						vim.cmd.Git({ "pull", "--rebase" })
-					end, opts)
-
-					-- NOTE: It allows me to easily set the branch i am pushing and any tracking
-					-- needed if i did not set the branch up correctly
-					vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts)
-				end,
-			})
-
-			vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>")
-			vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>")
 		end,
 	},
 	{
