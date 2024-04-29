@@ -41,7 +41,7 @@
     },
     "friendly-snippets": {
         "branch": "main",
-        "commit": "ea068f1becd91bcd4591fceb6420d4335e2e14d3"
+        "commit": "d5f74ce4dfdd82848f3f4eac65fe6e29ac5df4c2"
     },
     "gitsigns.nvim": {
         "branch": "main",

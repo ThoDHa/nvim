@@ -50,41 +50,8 @@ require("lazy").setup({
 		build = ":TSUpdate",
 	},
 
-	{
-		"ThePrimeagen/harpoon",
-		event = "VeryLazy",
-	},
-	{
-		"mbbill/undotree",
-		config = function()
-			vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Undo Tree" })
-		end,
-	},
-	{
-		"numToStr/Comment.nvim",
-		event = "VeryLazy",
-		opts = {},
-	},
-	{
-		"tpope/vim-sleuth",
-		event = "VeryLazy",
-	},
-	-- Highlight todo, notes, etc in comments
-	{
-		"folke/todo-comments.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		opts = {
-			signs = false,
-		},
-	},
-	{
-		"lewis6991/gitsigns.nvim",
-		event = "VeryLazy",
-		opts = {},
-	},
-
+	-- REGION: Plugins that make nvim a development environment, LSP, Formatting, Linting, GIT, errors etc.
+	--
 	-- LSP Support
 	{
 		"neovim/nvim-lspconfig",
@@ -98,7 +65,6 @@ require("lazy").setup({
 			{ "j-hui/fidget.nvim", opts = {} },
 		},
 	},
-
 	-- Autocompletion
 	{
 		"hrsh7th/nvim-cmp",
@@ -157,7 +123,6 @@ require("lazy").setup({
 			},
 		},
 	},
-
 	-- This is for Debugging support and UI
 	{
 		"mfussenegger/nvim-dap",
@@ -182,96 +147,7 @@ require("lazy").setup({
 		"mfussenegger/nvim-jdtls",
 		event = "VeryLazy",
 	},
-	-- Status
-	{
-		"nvim-lualine/lualine.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			{ "nvim-tree/nvim-web-devicons" },
-		},
-		opts = {},
-	},
-	{
-		"rmagatti/auto-session",
-		opts = {
-			log_level = "error",
-			auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-		},
-	},
-	{
-		-- Color Schemes
-		"navarasu/onedark.nvim",
-		opts = {
-			-- style = 'dark'
-			-- style = 'darker'
-			-- style = 'cool'
-			style = "deep",
-			--  style = 'warm'
-			-- style = 'warmer'
-			-- style = 'light'
-		},
-	},
-	-- Does a popup of possible key maps
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		init = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
-		end,
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
-	},
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = "VeryLazy",
-		main = "ibl",
-		opts = {},
-	},
-	{
-		"stevearc/dressing.nvim",
-		opts = {},
-	},
-	-- install without yarn or npm
-	{
-		"iamcco/markdown-preview.nvim",
-		ft = "markdown",
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-		cmd = {
-			"MarkdownPreviewToggle",
-			"MarkdownPreview",
-			"MarkdownPreviewStop",
-		},
-	},
-	{
-		"stevearc/oil.nvim",
-		event = "VeryLazy",
-		opts = function()
-			vim.keymap.set("n", "<leader>-", function()
-				require("oil").open_float()
-			end, { desc = "Open parent directory" })
-		end,
 
-		-- Optional dependencies
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
-	{
-		"nvim-pack/nvim-spectre",
-		event = "VeryLazy",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-	},
-	{
-		"sindrets/diffview.nvim",
-		event = "VeryLazy",
-		opts = {},
-	},
 	{
 		"mfussenegger/nvim-lint",
 		event = { "BufReadPre", "BufNewFile" },
@@ -330,6 +206,8 @@ require("lazy").setup({
 			vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 		end,
 	},
+
+	-- This pulls up the problems list and stuff
 	{
 		"folke/trouble.nvim",
 		config = function()
@@ -349,6 +227,135 @@ require("lazy").setup({
 				require("trouble").previous({ skip_groups = true, jump = true })
 			end)
 		end,
+	},
+	-- REGION: Quality of life stuff.
+	{
+		"stevearc/oil.nvim",
+		event = "VeryLazy",
+		opts = function()
+			vim.keymap.set("n", "<leader>-", function()
+				require("oil").open_float()
+			end, { desc = "Open parent directory" })
+		end,
+
+		-- Optional dependencies
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
+	{
+		"nvim-pack/nvim-spectre",
+		event = "VeryLazy",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
+	{
+		"sindrets/diffview.nvim",
+		event = "VeryLazy",
+		opts = {},
+	},
+
+	{
+		"rmagatti/auto-session",
+		opts = {
+			log_level = "error",
+			auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+		},
+	},
+	{
+		"ThePrimeagen/harpoon",
+		event = "VeryLazy",
+	},
+	{
+		"mbbill/undotree",
+		config = function()
+			vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Undo Tree" })
+		end,
+	},
+	{
+		"numToStr/Comment.nvim",
+		event = "VeryLazy",
+		opts = {},
+	},
+
+	-- REGION: PRETTY stuff
+	-- Status
+	{
+		"nvim-lualine/lualine.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			{ "nvim-tree/nvim-web-devicons" },
+		},
+		opts = {},
+	},
+
+	{
+		"tpope/vim-sleuth",
+		event = "VeryLazy",
+	},
+	-- Highlight todo, notes, etc in comments
+	{
+		"folke/todo-comments.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		opts = {
+			signs = false,
+		},
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		event = "VeryLazy",
+		opts = {},
+	},
+	-- Does a popup of possible key maps
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+		end,
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		event = "VeryLazy",
+		main = "ibl",
+		opts = {},
+	},
+	{
+		"stevearc/dressing.nvim",
+		opts = {},
+	},
+	-- install without yarn or npm
+	{
+		"iamcco/markdown-preview.nvim",
+		ft = "markdown",
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+		cmd = {
+			"MarkdownPreviewToggle",
+			"MarkdownPreview",
+			"MarkdownPreviewStop",
+		},
+	},
+	{
+		-- Color Schemes
+		"navarasu/onedark.nvim",
+		opts = {
+			-- style = 'dark'
+			-- style = 'darker'
+			-- style = 'cool'
+			style = "deep",
+			--  style = 'warm'
+			-- style = 'warmer'
+			-- style = 'light'
+		},
 	},
 }, {
 	ui = {
