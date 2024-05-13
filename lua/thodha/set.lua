@@ -2,6 +2,7 @@
 -- See `:help vim.o`
 
 vim.g.mapleader = " "
+vim.g.python3_host_prog = vim.fn.stdpath("data") .. "/venv/bin/python"
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -18,7 +19,6 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false
@@ -39,8 +39,8 @@ vim.opt.cursorline = true
 -- Keep signcolumn on by default
 vim.wo.signcolumn = "yes"
 
--- Change update time to 5 seconds.
-vim.o.updatetime = 5000
+-- Change update time to 25 seconds.
+vim.o.updatetime = 25000
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 
