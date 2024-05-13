@@ -188,6 +188,7 @@ return { -- LSP Configuration & Plugins
 			"isort",
 			"djlint",
 			"bash-language-server",
+			"debugpy",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
