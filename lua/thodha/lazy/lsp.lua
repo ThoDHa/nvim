@@ -185,7 +185,6 @@ return { -- LSP Configuration & Plugins
 			"marksman",
 			"markdownlint",
 			"pyright",
-			"pylint",
 			"isort",
 			"djlint",
 			"bash-language-server",
