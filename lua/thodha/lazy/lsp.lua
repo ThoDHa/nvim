@@ -187,6 +187,7 @@ return { -- LSP Configuration & Plugins
 			"pyright",
 			"isort",
 			"djlint",
+			"ruff",
 			"bash-language-server",
 			"debugpy",
 		})
