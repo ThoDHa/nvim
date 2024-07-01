@@ -140,7 +140,7 @@ return { -- LSP Configuration & Plugins
 		local servers = {
 			-- clangd = {},
 			-- gopls = {},
-			pyright = {},
+			basedpyright = {},
 			-- rust_analyzer = {},
 			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 			--
@@ -184,10 +184,10 @@ return { -- LSP Configuration & Plugins
 			"jdtls",
 			"marksman",
 			"markdownlint",
-			"pyright",
+			"basedpyright",
+			"pylint",
 			"isort",
 			"djlint",
-			"ruff",
 			"bash-language-server",
 			"debugpy",
 		})
