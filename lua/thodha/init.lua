@@ -14,11 +14,13 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_autocmd("BufReadPost", {
 	pattern = { "*.py" },
 	command = "set colorcolumn=101",
+	command = "set colorcolumn=",
 })
 
 vim.api.nvim_create_autocmd("BufReadPost", {
 	pattern = { "*.md" },
 	command = "set colorcolumn=81",
+	command = "set colorcolumn=",
 })
 
 vim.api.nvim_create_autocmd("CursorHoldI", {

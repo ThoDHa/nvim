@@ -70,7 +70,7 @@ return { -- LSP Configuration & Plugins
 
 				-- See `:help K` for why this keymap
 				nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-				nmap("<C-K>", vim.lsp.buf.signature_help, "Signature Documentation")
+				nmap("<leader>K", vim.lsp.buf.signature_help, "Signature Documentation")
 
 				-- Lesser used LSP functionality
 				nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
@@ -118,6 +118,14 @@ return { -- LSP Configuration & Plugins
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 					end, "[T]oggle Inlay [H]ints")
 				end
+				local isLspDiagnosticsVisible = true
+				nmap("<leader>tv", function()
+					isLspDiagnosticsVisible = not isLspDiagnosticsVisible
+					vim.diagnostic.config({
+						virtual_text = isLspDiagnosticsVisible,
+						underline = isLspDiagnosticsVisible,
+					})
+				end, "[T]oggle [V]irtual Text")
 			end,
 		})
 

@@ -7,6 +7,8 @@ return {
 			"vim",
 			"bash",
 			"markdown",
+			"markdown_inline",
+			"html",
 			"javascript",
 			"typescript",
 			"python",
