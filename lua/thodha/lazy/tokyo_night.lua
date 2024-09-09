@@ -22,13 +22,18 @@
 --            vim.cmd.hi 'Comment gui=none'
 --        end
 --}
+-- return {
+-- 	"rose-pine/neovim",
+-- 	priority = 1000,
+-- 	init = function()
+-- 		vim.cmd.colorscheme("rose-pine-moon")
+-- 	end,
+-- }
+--
 return {
-	"rose-pine/neovim",
-	dependencies = {
-		"folke/tokyonight.nvim",
-	},
+	"folke/tokyonight.nvim",
 	priority = 1000,
 	init = function()
-		vim.cmd.colorscheme("rose-pine-moon")
+		vim.cmd.colorscheme("tokyonight")
 	end,
 }
