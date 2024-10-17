@@ -17,10 +17,10 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- greatest remap ever
 -- Paste but don't put the current text into register
-vim.keymap.set("n", "<leader>P", '"_dP', { desc = "Paste but don't copy" })
-vim.keymap.set("v", "<leader>P", '"_dP', { desc = "Paste but don't copy" })
-vim.keymap.set("n", "<leader>D", '"_d', { desc = "Delete and don't yank to register" })
-vim.keymap.set("v", "<leader>D", '"_d', { desc = "Delete and don't yank to register" })
+vim.keymap.set("n", "<leader>p", '"_dP', { desc = "Paste but don't copy" })
+vim.keymap.set("v", "<leader>p", '"_dP', { desc = "Paste but don't copy" })
+vim.keymap.set("n", "<leader>d", '"_d', { desc = "Delete and don't yank to register" })
+vim.keymap.set("v", "<leader>d", '"_d', { desc = "Delete and don't yank to register" })
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "Create new tmux silent quietly" })

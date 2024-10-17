@@ -5,6 +5,7 @@ return {
 		ensure_installed = {
 			"vimdoc",
 			"vim",
+			"gitcommit",
 			"bash",
 			"markdown",
 			"markdown_inline",
