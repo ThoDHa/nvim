@@ -28,6 +28,7 @@ return {
 			python = { "black", "isort" },
 			markdown = { "markdownlint" },
 			html = { "djlint" },
+			json = { "jq" },
 
 			-- Conform can also run multiple formatters sequentially
 			--

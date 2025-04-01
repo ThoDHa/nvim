@@ -1,28 +1,24 @@
 require("thodha.set")
 require("thodha.remap")
 require("thodha.lazy_init")
+-- Automatically reload Neovim configuration on file changes
+local config_path = vim.fn.stdpath("config") -- Path to your Neovim config folder
 
+-- Clear or set colorcolumn based on file type
 vim.api.nvim_create_autocmd("BufReadPost", {
-	pattern = { "*.json" },
-	command = "silent %!python3 -m json.tool",
-})
-vim.api.nvim_create_autocmd("BufReadPost", {
-	pattern = { "*" },
-	command = "set colorcolumn=",
-})
-
-vim.api.nvim_create_autocmd("BufReadPost", {
-	pattern = { "*.py" },
-	command = "set colorcolumn=101",
-	command = "set colorcolumn=",
-})
-
-vim.api.nvim_create_autocmd("BufReadPost", {
-	pattern = { "*.md" },
-	command = "set colorcolumn=81",
-	command = "set colorcolumn=",
+	pattern = { "*.py", "*.md", "*" },
+	callback = function()
+		if vim.bo.filetype == "python" then
+			vim.cmd("set colorcolumn=101")
+		elseif vim.bo.filetype == "markdown" then
+			vim.cmd("set colorcolumn=81")
+		else
+			vim.cmd("set colorcolumn=")
+		end
+	end,
 })
 
+-- Workaround for CursorHoldI event to maintain undo levels
 vim.api.nvim_create_autocmd("CursorHoldI", {
 	pattern = { "*" },
 	command = "let &undolevels = &undolevels",
