@@ -83,8 +83,28 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		vim.keymap.set("n", "<leader><leader>", function()
 			builtin.buffers({
 				attach_mappings = function(_, map)
-					map("i", "<c-d>", require("telescope.actions").delete_buffer)
-					map("n", "<c-d>", require("telescope.actions").delete_buffer)
+					map("i", "<c-d>", function(prompt_bufnr)
+						local actions = require("telescope.actions")
+						local state = require("telescope.actions.state")
+						local current_picker = state.get_current_picker(prompt_bufnr)
+						local selection = state.get_selected_entry()
+						if selection and vim.api.nvim_buf_is_valid(selection.bufnr) then
+							actions.delete_buffer(prompt_bufnr)
+						else
+							vim.notify("Buffer is invalid or already deleted", vim.log.levels.WARN)
+						end
+					end)
+					map("n", "<c-d>", function(prompt_bufnr)
+						local actions = require("telescope.actions")
+						local state = require("telescope.actions.state")
+						local current_picker = state.get_current_picker(prompt_bufnr)
+						local selection = state.get_selected_entry()
+						if selection and vim.api.nvim_buf_is_valid(selection.bufnr) then
+							actions.delete_buffer(prompt_bufnr)
+						else
+							vim.notify("Buffer is invalid or already deleted", vim.log.levels.WARN)
+						end
+					end)
 					return true
 				end,
 			})

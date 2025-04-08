@@ -26,7 +26,6 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "black", "isort" },
-			markdown = { "markdownlint" },
 			html = { "djlint" },
 			json = { "jq" },
 

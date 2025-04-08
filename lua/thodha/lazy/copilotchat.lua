@@ -10,6 +10,7 @@ return {
 			"CopilotChatFix",
 			"CopilotChatRefactor",
 			"CopilotChatModels",
+			"CopilotChatOptimize",
 		}, -- Load on CopilotChat or Copilot command
 		dependencies = {
 			{
@@ -29,28 +30,46 @@ return {
 				close = "q",
 				exit_insert = "<C-c>",
 			},
-			vim.keymap.set("n", "<leader>cc", "<cmd>CopilotChat<CR>", { desc = "Open Copilot Chat" }),
+			vim.keymap.set("n", "<leader>cc", function()
+				return require("CopilotChat").toggle()
+			end, { desc = "Open Copilot Chat" }),
 			vim.keymap.set(
-				"n",
+				{ "n", "v" },
 				"<leader>ce",
 				"<cmd>CopilotChatExplain<CR>",
 				{ desc = "Explain code with Copilot Chat" }
 			),
 			vim.keymap.set(
-				"n",
+				{ "n", "v" },
 				"<leader>cg",
 				"<cmd>CopilotChatGenerate<CR>",
 				{ desc = "Generate code with Copilot Chat" }
 			),
-			vim.keymap.set("n", "<leader>cf", "<cmd>CopilotChatFix<CR>", { desc = "Fix code with Copilot Chat" }),
 			vim.keymap.set(
-				"n",
+				{ "n", "v" },
+				"<leader>cf",
+				"<cmd>CopilotChatFix<CR>",
+				{ desc = "Fix code with Copilot Chat" }
+			),
+			vim.keymap.set(
+				{ "n", "v" },
 				"<leader>cr",
 				"<cmd>CopilotChatRefactor<CR>",
 				{ desc = "Refactor code with Copilot Chat" }
 			),
-			vim.keymap.set("n", "<leader>ct", "<cmd>CopilotChatTest<CR>", { desc = "Test code with Copilot Chat" }),
-			vim.keymap.set("n", "<leader>cm", "<cmd>CopilotChatModels<CR>", { desc = "Change Copilot Chat Model" }),
+			vim.keymap.set(
+				{ "n", "v" },
+				"<leader>ct",
+				"<cmd>CopilotChatTest<CR>",
+				{ desc = "Test code with Copilot Chat" }
+			),
+			vim.keymap.set(
+				{ "n", "v" },
+				"<leader>cm",
+				"<cmd>CopilotChatModels<CR>",
+				{ desc = "Change Copilot Chat Model" }
+			),
+			vim.keymap.set({ "n", "v" }, "<leader>co", "<cmd>CopilotChatOptimize<CR>", { desc = "Copilot Optimize" }),
 		},
 		-- See Commands section for default commands if you want to lazy load on them
 	},
