@@ -34,7 +34,8 @@ return {
 				function()
 					require("harpoon"):list():select(i)
 				end,
-				desc = "Harpoon to File " .. i,
+				-- Get whichkey to ignore this keymap
+				desc = "which_key_ignore",
 			})
 		end
 		return keys

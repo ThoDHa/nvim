@@ -34,12 +34,3 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
-
-local tmux = require("thodha.custom.tmux")
-
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>ts",
-	":lua require('thodha.custom.tmux').create_tmux_session_from_oil()<CR>",
-	{ noremap = true, silent = true, desc = "Create a new tmux session from oil" }
-)
