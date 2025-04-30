@@ -19,7 +19,7 @@ return {
 			-- languages here or re-enable it for the disabled ones.
 			local disable_filetypes = {}
 			return {
-				timeout_ms = 500,
+				timeout_ms = 5000,
 				lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
 			}
 		end,
@@ -28,6 +28,7 @@ return {
 			python = { "black", "isort" },
 			html = { "djlint" },
 			json = { "jq" },
+			markdown = { "markdownlint" },
 
 			-- Conform can also run multiple formatters sequentially
 			--
