@@ -99,35 +99,12 @@ return {
 		opts = {
 			inline_suggestions = { enabled = false },
 			context = { folder = true }, -- Set context to the folder
-			window = { width = 0.33 }, -- Set window size to 33% of the screen width
+			window = { width = 0.40 }, -- Set window size to 33% of the screen width
 			mappings = {
 				close = "q",
 				exit_insert = "<C-c>",
 			},
+			model = "claude-3.7-sonnet-thought", -- Set default model to Claude 3.7 Sonnet
 		},
-		config = function(_, opts)
-			vim.api.nvim_create_autocmd("BufEnter", {
-				pattern = "*.copilot-chat", -- Match filetype instead of buffer name
-				callback = function()
-					vim.opt_local.relativenumber = false
-					vim.opt_local.number = false
-				end,
-			})
-
-			-- Close a window on WinLeave event
-			vim.api.nvim_create_autocmd("WinLeave", {
-				pattern = "copilot-chat",
-				callback = function()
-					local win = vim.api.nvim_get_current_win()
-					if vim.api.nvim_win_get_config(win).relative ~= "" then
-						vim.api.nvim_win_close(win, true)
-					end
-				end,
-			})
-
-			local chat = require("CopilotChat")
-			chat.setup(opts)
-		end,
-		-- See Commands section for default commands if you want to lazy load on them
 	},
 }
