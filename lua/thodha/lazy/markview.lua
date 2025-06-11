@@ -7,4 +7,12 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-tree/nvim-web-devicons",
 	},
+	config = function()
+		vim.keymap.set("n", "<leader>mvs", "<cmd>Markview splitToggle<CR>")
+		vim.keymap.set("n", "<leader>mvt", "<cmd>Markview toggle<CR>")
+		vim.keymap.set("n", "<leader>mvd", "<cmd>Markview disable<CR>")
+		preview = {
+			enable = false,
+		}
+	end,
 }

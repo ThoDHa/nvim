@@ -7,9 +7,11 @@ return {
 				["<C-h>"] = false,
 				["<C-v>"] = "actions.select_vsplit",
 				["<C-s>"] = "actions.select_split",
+				["<C-p>"] = "<UP>",
 			},
 			view_options = {
 				show_hidden = true,
+				preview = true,
 			},
 		})
 		vim.keymap.set("n", "<leader>-", function()

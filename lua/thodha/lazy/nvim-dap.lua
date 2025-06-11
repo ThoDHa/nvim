@@ -62,9 +62,18 @@ return {
 					},
 				})
 
-				dap.listeners.after.event_initialized["dapui_config"] = dapui.open
-				dap.listeners.before.event_terminated["dapui_config"] = dapui.close
-				dap.listeners.before.event_exited["dapui_config"] = dapui.close
+				dap.listeners.after.event_initialized["dapui_config"] = function()
+					dapui.open()
+					vim.api.nvim_echo({ { "DAP session started", "MoreMsg" } }, false, {})
+				end
+				dap.listeners.before.event_terminated["dapui_config"] = function()
+					dapui.close()
+					vim.api.nvim_echo({ { "DAP session terminated", "WarningMsg" } }, false, {})
+				end
+				dap.listeners.before.event_exited["dapui_config"] = function()
+					dapui.close()
+					vim.api.nvim_echo({ { "DAP session exited", "WarningMsg" } }, false, {})
+				end
 			end,
 		},
 		"nvim-neotest/nvim-nio",
@@ -85,6 +94,7 @@ return {
 					ensure_installed = {
 						-- Update this to ensure that you have the debuggers for the langs you want
 						"debugpy",
+						"chrome-debug-adapter",
 					},
 					handlers = {},
 				})
@@ -95,6 +105,7 @@ return {
 			"mfussenegger/nvim-dap-python",
 			config = function()
 				local dap = require("dap")
+				local dapui = require("dapui")
 				dap.set_log_level("TRACE")
 				-- Basic debugging keymaps, feel free to change to your liking!
 				vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Enter Debug Mode/Continue" })
@@ -105,6 +116,11 @@ return {
 				vim.keymap.set("n", "<leader>sB", function()
 					dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 				end, { desc = "Debug: Toggle Conditional BreakPoint" })
+
+				vim.keymap.set("n", "<leader>sD", dapui.toggle, { desc = "Debug: Toggle UI" })
+				vim.keymap.set("n", "<leader>da", function()
+					require("dap").attach()
+				end)
 			end,
 		},
 	},

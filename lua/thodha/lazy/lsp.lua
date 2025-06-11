@@ -199,6 +199,7 @@ return { -- LSP Configuration & Plugins
 			"markdownlint",
 			"marksman",
 			"pylint",
+			"eslint-lsp",
 			"stylua", -- Used to format lua code
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
