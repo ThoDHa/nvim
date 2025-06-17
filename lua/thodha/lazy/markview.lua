@@ -8,11 +8,13 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
-		vim.keymap.set("n", "<leader>mvs", "<cmd>Markview splitToggle<CR>")
-		vim.keymap.set("n", "<leader>mvt", "<cmd>Markview toggle<CR>")
-		vim.keymap.set("n", "<leader>mvd", "<cmd>Markview disable<CR>")
-		preview = {
-			enable = false,
-		}
+		require("markview").setup({
+			preview = {
+				enable = false, -- Enable the preview functionality
+			},
+		})
+
+		vim.keymap.set("n", "<leader>ms", "<cmd>Markview splitToggle<CR>")
+		vim.keymap.set("n", "<leader>mt", "<cmd>Markview toggle<CR>")
 	end,
 }

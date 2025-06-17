@@ -1,7 +1,7 @@
 {
   "CopilotChat.nvim": {
     "branch": "main",
-    "commit": "16d897fd43d07e3b54478ccdb2f8a16e4df4f45a"
+    "commit": "5df0b668d23c05c173f6bc79bb19642215b8b66a"
   },
   "LuaSnip": {
     "branch": "master",
@@ -9,7 +9,7 @@
   },
   "auto-session": {
     "branch": "main",
-    "commit": "00334ee24b9a05001ad50221c8daffbeedaa0842"
+    "commit": "fffb13dcbe8731b8650e5bf1caa749a485d20556"
   },
   "cmp-nvim-lsp": {
     "branch": "main",
@@ -45,7 +45,7 @@
   },
   "gitsigns.nvim": {
     "branch": "main",
-    "commit": "731b581428ec6c1ccb451b95190ebbc6d7006db7"
+    "commit": "88205953bd748322b49b26e1dfb0389932520dc9"
   },
   "harpoon": {
     "branch": "harpoon2",
@@ -65,11 +65,11 @@
   },
   "markview.nvim": {
     "branch": "main",
-    "commit": "41f98ce33b6145e191baa87442a869915a6e0040"
+    "commit": "02810964cc288065c2919ea7a8d41e72f17ccd8a"
   },
   "mason-lspconfig.nvim": {
     "branch": "main",
-    "commit": "bef29b653ba71d442816bf56286c2a686210be04"
+    "commit": "bb30c422329e86fcaa4e4920181f6715d634e516"
   },
   "mason-nvim-dap.nvim": {
     "branch": "main",
@@ -97,7 +97,7 @@
   },
   "nvim-dap": {
     "branch": "master",
-    "commit": "ea82027c3447dc1a022be9a9884de276c05cd33a"
+    "commit": "2edd6375692d9ac1053d50acfe415c1eb2ba92d0"
   },
   "nvim-dap-python": {
     "branch": "master",
@@ -113,11 +113,11 @@
   },
   "nvim-lint": {
     "branch": "master",
-    "commit": "cc26ae6a620298bb3f33b0e0681f99a10ae57781"
+    "commit": "2b0039b8be9583704591a13129c600891ac2c596"
   },
   "nvim-lspconfig": {
     "branch": "master",
-    "commit": "77d3fdfb3554632c7a3b101ded643d422de7626f"
+    "commit": "99d3a0f26bfe402f45257c1398287aef252cbe2d"
   },
   "nvim-nio": {
     "branch": "master",
