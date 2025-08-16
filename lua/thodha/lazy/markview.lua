@@ -12,8 +12,10 @@ return {
 			preview = {
 				enable = false, -- Enable the preview functionality
 			},
+			experimental = {
+				check_rtp = false, -- Disable runtime path check
+			},
 		})
-
 		vim.keymap.set("n", "<leader>ms", "<cmd>Markview splitToggle<CR>")
 		vim.keymap.set("n", "<leader>mt", "<cmd>Markview toggle<CR>")
 	end,
