@@ -9,7 +9,13 @@ return {
 	lazy = false,
 	branch = "regexp", -- This is the regexp branch, use this for the new version
 	config = function()
-		require("venv-selector").setup()
+		require("venv-selector").setup({
+			-- Basic configuration options
+			name = "venv",
+			auto_refresh = true,
+			search_venv_managers = true,
+			search_workspace = true,
+		})
 	end,
 	keys = {
 		{ "<leader>v", "<cmd>VenvSelect<cr>" },
