@@ -18,5 +18,13 @@ return {
 		})
 		vim.keymap.set("n", "<leader>ms", "<cmd>Markview splitToggle<CR>")
 		vim.keymap.set("n", "<leader>mt", "<cmd>Markview toggle<CR>")
+		-- Show MarkdownPreview by default when opening up MD files.
+		vim.api.nvim_create_autocmd("BufWinEnter", {
+			callback = function()
+				if vim.bo.filetype == "markdown" then
+					pcall(vim.cmd, "Markview Enable")
+				end
+			end,
+		})
 	end,
 }

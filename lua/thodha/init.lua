@@ -24,15 +24,6 @@ vim.api.nvim_create_autocmd("CursorHoldI", {
 	command = "let &undolevels = &undolevels",
 })
 
--- Show MarkdownPreview by default when opening up MD files.
-vim.api.nvim_create_autocmd("BufWinEnter", {
-	callback = function()
-		if vim.bo.filetype == "markdown" then
-			pcall(vim.cmd, "Markview Enable")
-		end
-	end,
-})
-
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
