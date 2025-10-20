@@ -2,23 +2,17 @@ return {
 	"olimorris/codecompanion.nvim",
 	opts = {
 		default_adapter = "copilot claude-sonnet-4",
+
 		strategies = {
 			chat = {
 				keymaps = {
-					close = {
-						modes = { n = "<C-c>", i = "<C-c>" },
-						opts = {
-							callback = function() end, -- no-op
-						},
-					},
-					-- Add further custom keymaps here
+					close = false,
 				},
 			},
 		},
 	},
 	config = function(_, opts)
 		require("codecompanion").setup(opts)
-
 		-- Keymaps (mirroring CopilotChat)
 		local cc = require("codecompanion")
 		vim.keymap.set({ "n", "v" }, "<leader>cc", function()
