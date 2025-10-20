@@ -23,10 +23,12 @@ vim.api.nvim_create_autocmd("CursorHoldI", {
 	pattern = { "*" },
 	command = "let &undolevels = &undolevels",
 })
+
+-- Show MarkdownPreview by default when opening up MD files.
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	callback = function()
 		if vim.bo.filetype == "markdown" then
-			pcall(vim.cmd, "Markview toggle")
+			pcall(vim.cmd, "Markview Enable")
 		end
 	end,
 })
