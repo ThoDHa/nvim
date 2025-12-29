@@ -1,6 +1,5 @@
-return {
-	"stevearc/conform.nvim",
-	lazy = false,
+ return {
+ 	"stevearc/conform.nvim",
 	keys = {
 		{
 			"<leader>f",

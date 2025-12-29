@@ -109,8 +109,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
 				end,
 			})
 		end, { desc = "[ ] Find and delete buffers" })
-		vim.keymap.set("n", "<leader>cs", builtin.colorscheme, { desc = "[ ] Change Color Scheme" })
-		vim.keymap.set("n", "<leader>cs", builtin.colorscheme, { desc = "[ ] Change Color Scheme" })
 
 		-- Slightly advanced example of overriding default behavior and theme
 		vim.keymap.set("n", "<leader>/", function()

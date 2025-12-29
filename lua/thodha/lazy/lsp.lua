@@ -41,9 +41,10 @@ return { -- LSP Configuration & Plugins
 		-- and elegantly composed help section, `:help lsp-vs-treesitter`
 
 		--  This function gets run when an LSP attaches to a particular buffer.
-		--    That is to say, every time a new file is opened that is associated with
+		--  That is to say, every time a new file is opened that is associated with
 		--    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
 		--    function will be executed to configure the current buffer
+		local isLspDiagnosticsVisible = true
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 			callback = function(event)
@@ -117,15 +118,14 @@ return { -- LSP Configuration & Plugins
 					nmap("<leader>th", function()
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 					end, "[T]oggle Inlay [H]ints")
-				end
-				local isLspDiagnosticsVisible = true
-				nmap("<leader>tv", function()
-					isLspDiagnosticsVisible = not isLspDiagnosticsVisible
-					vim.diagnostic.config({
-						virtual_text = isLspDiagnosticsVisible,
-						underline = isLspDiagnosticsVisible,
-					})
-				end, "[T]oggle [V]irtual Text")
+			end
+			nmap("<leader>tv", function()
+				isLspDiagnosticsVisible = not isLspDiagnosticsVisible
+				vim.diagnostic.config({
+					virtual_text = isLspDiagnosticsVisible,
+					underline = isLspDiagnosticsVisible,
+				})
+			end, "[T]oggle [V]irtual Text")
 			end,
 		})
 

@@ -33,21 +33,16 @@ vim.opt.isfname:append("@-@")
 vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 vim.o.mouse = ""
 
--- Enable cursor line highlight
-vim.opt.cursorline = true
-
--- Keep signcolumn on by default
-vim.wo.signcolumn = "yes"
-
--- Change update time to 25 seconds.
+ -- Enable cursor line highlight
+ vim.opt.cursorline = true
+ 
+ -- Change update time to 25 seconds.
 vim.o.updatetime = 25000
 vim.o.timeout = true
 vim.o.timeoutlen = 300
-
--- Set completeopt to have a better completion experience
-vim.o.completeopt = "menuone,noselect"
-vim.o.background = "dark"
-
--- Configure how new splits should be opened
+ 
+ vim.o.background = "dark"
+ 
+ -- Configure how new splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
