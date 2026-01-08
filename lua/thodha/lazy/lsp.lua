@@ -148,7 +148,6 @@ return { -- LSP Configuration & Plugins
 		local servers = {
 			-- clangd = {},
 			-- gopls = {},
-			basedpyright = {},
 			-- rust_analyzer = {},
 			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 			--
@@ -158,7 +157,7 @@ return { -- LSP Configuration & Plugins
 			-- But for many setups, the LSP (`tsserver`) will work just fine
 			-- tsserver = {},
 			--
-
+		ty = {},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes = { ...},
@@ -187,7 +186,6 @@ return { -- LSP Configuration & Plugins
 		-- for you, so that they are available from within Neovim.
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
-			"basedpyright",
 			"bash-language-server",
 			"black",
 			"debugpy",
@@ -198,8 +196,9 @@ return { -- LSP Configuration & Plugins
 			"jq",
 			"markdownlint",
 			"marksman",
-			"pylint",
+			"ruff",
 			"eslint-lsp",
+			"ty",
 			"stylua", -- Used to format lua code
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
