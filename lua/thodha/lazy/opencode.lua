@@ -6,7 +6,7 @@ return {
 		---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
 		{ "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
 	},
-	config = function()
+	init = function()
 		---@type opencode.Opts
 		vim.g.opencode_opts = {
 			-- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition".
@@ -14,32 +14,62 @@ return {
 
 		-- Required for `opts.events.reload`.
 		vim.o.autoread = true
-
-		-- Recommended/example keymaps.
-		vim.keymap.set({ "n", "x" }, "<leader>pa", function()
-			require("opencode").ask("@this: ", { submit = true })
-		end, { desc = "Ask opencode" })
-		vim.keymap.set({ "n", "x" }, "<leader>px", function()
-			require("opencode").select()
-		end, { desc = "Execute opencode action…" })
-		vim.keymap.set({ "n", "t" }, "<leader>pt", function()
-			require("opencode").toggle()
-		end, { desc = "Toggle opencode" })
-
-		vim.keymap.set({ "n", "x" }, "<leader>pr", function()
-			return require("opencode").operator("@this ")
-		end, { expr = true, desc = "Add range to opencode" })
-		vim.keymap.set("n", "<leader>pl", function()
-			return require("opencode").operator("@this ") .. "_"
-		end, { expr = true, desc = "Add line to opencode" })
-
-		vim.keymap.set("n", "<leader>pu", function()
-			require("opencode").command("session.half.page.up")
-		end, { desc = "opencode half page up" })
-		vim.keymap.set("n", "<leader>pd", function()
-			require("opencode").command("session.half.page.down")
-		end, { desc = "opencode half page down" })
-
-		-- You may want these if you stick with the opinionated "<C-a>" and "<C-x>" above — otherwise consider "<leader>o".
 	end,
+	keys = {
+		{
+			"<leader>pa",
+			function()
+				require("opencode").ask("@this: ", { submit = true })
+			end,
+			mode = { "n", "x" },
+			desc = "Ask opencode",
+		},
+		{
+			"<leader>px",
+			function()
+				require("opencode").select()
+			end,
+			mode = { "n", "x" },
+			desc = "Execute opencode action…",
+		},
+		{
+			"<leader>pt",
+			function()
+				require("opencode").toggle()
+			end,
+			mode = { "n", "t" },
+			desc = "Toggle opencode",
+		},
+		{
+			"<leader>pr",
+			function()
+				return require("opencode").operator("@this ")
+			end,
+			mode = { "n", "x" },
+			expr = true,
+			desc = "Add range to opencode",
+		},
+		{
+			"<leader>pl",
+			function()
+				return require("opencode").operator("@this ") .. "_"
+			end,
+			expr = true,
+			desc = "Add line to opencode",
+		},
+		{
+			"<leader>pu",
+			function()
+				require("opencode").command("session.half.page.up")
+			end,
+			desc = "opencode half page up",
+		},
+		{
+			"<leader>pd",
+			function()
+				require("opencode").command("session.half.page.down")
+			end,
+			desc = "opencode half page down",
+		},
+	},
 }
