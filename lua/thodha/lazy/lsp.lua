@@ -3,7 +3,7 @@ return { -- LSP Configuration & Plugins
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		-- Automatically install LSPs and related tools to stdpath for Neovim
-		{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
+		{ "williamboman/mason.nvim", config = true, cmd = { "Mason", "MasonInstall", "MasonUpdate", "MasonLog" } },
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 
@@ -160,6 +160,7 @@ return { -- LSP Configuration & Plugins
 			-- tsserver = {},
 			--
 		ty = {},
+			helm_ls = {},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes = { ...},
@@ -192,16 +193,18 @@ return { -- LSP Configuration & Plugins
 			"black",
 			"debugpy",
 			"djlint",
+			"eslint-lsp",
+			"eslint_d",
 			"harper-ls",
 			"isort",
 			"jdtls",
 			"jq",
+			"kube-linter",
 			"markdownlint",
 			"marksman",
 			"ruff",
-			"eslint-lsp",
+			"stylua",
 			"ty",
-			"stylua", -- Used to format lua code
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

@@ -9,6 +9,7 @@ return {
 			python = { "ruff" },
 			javascript = { "eslint_d" },
 			typescript = { "eslint_d" },
+			yaml = { "kube-linter" },
 		}
 
 		-- To allow other plugins to add linters to require('lint').linters_by_ft,
