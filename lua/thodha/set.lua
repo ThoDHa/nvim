@@ -1,5 +1,6 @@
 vim.g.python3_host_prog = vim.fn.stdpath("data") .. "/venv/bin/python"
 vim.g.mapleader = " "
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -42,3 +43,6 @@ vim.o.background = "dark"
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+-- Save local options (including filetype) with sessions for proper syntax highlighting restoration
+vim.opt.sessionoptions:append("localoptions")
