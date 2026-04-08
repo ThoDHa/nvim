@@ -1,5 +1,3 @@
--- [[ Setting options ]]
--- See `:help vim.o`
 vim.g.python3_host_prog = vim.fn.stdpath("data") .. "/venv/bin/python"
 vim.g.mapleader = " "
 vim.opt.nu = true
@@ -20,6 +18,8 @@ vim.opt.linebreak = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
+vim.opt.undolevels = 100
+vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -33,16 +33,12 @@ vim.opt.isfname:append("@-@")
 vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 vim.o.mouse = ""
 
- -- Enable cursor line highlight
- vim.opt.cursorline = true
- 
- -- Change update time to 25 seconds.
+vim.opt.cursorline = true
 vim.o.updatetime = 25000
 vim.o.timeout = true
 vim.o.timeoutlen = 300
- 
- vim.o.background = "dark"
- 
- -- Configure how new splits should be opened
+
+vim.o.background = "dark"
+
 vim.opt.splitright = true
 vim.opt.splitbelow = true

@@ -1,4 +1,3 @@
-vim.g.mapleader = " "
 -- vim.keymap.set("n", "<leader>-", vim.cmd.Ex, { desc = 'Open up Explorer'})
 
 -- Remap <C-c> to Escape
@@ -23,17 +22,22 @@ vim.keymap.set("v", "<leader>d", '"_d', { desc = "Delete and don't yank to regis
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "Create new tmux silent quietly" })
 
- vim.keymap.set("n", "<leader>k", "<cmd>cnext<CR>zz")
- vim.keymap.set("n", "<leader>K", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+vim.keymap.set("n", "<leader>k", "<cmd>cnext<CR>zz", { desc = "Quickfix next" })
+vim.keymap.set("n", "<leader>j", "<cmd>cprev<CR>zz", { desc = "Quickfix prev" })
+vim.keymap.set("n", "<leader>L", "<cmd>lnext<CR>zz", { desc = "Location list next" })
+vim.keymap.set("n", "<leader>l", "<cmd>lprev<CR>zz", { desc = "Location list prev" })
 
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>Z", "<c-w>_<c-w>|", { desc = "Maximize current window" })
 vim.keymap.set("n", "<leader>z", "<c-w>=", { desc = "Change all windows to same size" })
 
-vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, { desc = "Go to next [D]iagnostic message" })
+vim.keymap.set("n", "[d", function()
+	vim.diagnostic.jump({ count = -1 })
+end, { desc = "Go to previous [D]iagnostic message" })
+vim.keymap.set("n", "]d", function()
+	vim.diagnostic.jump({ count = 1 })
+end, { desc = "Go to next [D]iagnostic message" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 

@@ -76,7 +76,7 @@ return {
 		local dapui = require("dapui")
 
 		-- Set log level for debugging
-		dap.set_log_level("TRACE")
+		dap.set_log_level("WARN")
 
 		-- Setup mason-nvim-dap
 		require("mason-nvim-dap").setup({

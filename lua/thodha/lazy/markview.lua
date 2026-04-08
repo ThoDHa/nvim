@@ -7,18 +7,19 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-tree/nvim-web-devicons",
 	},
+	keys = {
+		{ "<leader>ms", "<cmd>Markview splitToggle<CR>", desc = "Markview split toggle" },
+		{ "<leader>mt", "<cmd>Markview toggle<CR>", desc = "Markview toggle" },
+	},
 	config = function()
 		require("markview").setup({
 			preview = {
-				enable = false, -- Enable the preview functionality
+				enable = false,
 			},
 			experimental = {
-				check_rtp = false, -- Disable runtime path check
+				check_rtp = false,
 			},
 		})
-		vim.keymap.set("n", "<leader>ms", "<cmd>Markview splitToggle<CR>")
-		vim.keymap.set("n", "<leader>mt", "<cmd>Markview toggle<CR>")
-		-- Show MarkdownPreview by default when opening up MD files.
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = "markdown",
 			callback = function()
