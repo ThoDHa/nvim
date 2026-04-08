@@ -159,7 +159,7 @@ return { -- LSP Configuration & Plugins
 			-- But for many setups, the LSP (`tsserver`) will work just fine
 			-- tsserver = {},
 			--
-		ty = {},
+			ty = {},
 			helm_ls = {},
 			lua_ls = {
 				-- cmd = {...},
