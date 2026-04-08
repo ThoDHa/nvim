@@ -1,5 +1,6 @@
 return { -- LSP Configuration & Plugins
 	"neovim/nvim-lspconfig",
+	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		-- Automatically install LSPs and related tools to stdpath for Neovim
 		{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
@@ -10,9 +11,9 @@ return { -- LSP Configuration & Plugins
 		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 		{ "j-hui/fidget.nvim", opts = {} },
 
-		-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
+		-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
 		-- used for completion, annotations and signatures of Neovim apis
-		{ "folke/neodev.nvim", opts = {} },
+		{ "folke/lazydev.nvim", ft = "lua", opts = {} },
 	},
 	config = function()
 		-- Brief aside: **What is LSP?**
@@ -116,7 +117,7 @@ return { -- LSP Configuration & Plugins
 				-- This may be unwanted, since they displace some of your code
 				if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
 					nmap("<leader>th", function()
-						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
 					end, "[T]oggle Inlay [H]ints")
 			end
 			nmap("<leader>tv", function()
