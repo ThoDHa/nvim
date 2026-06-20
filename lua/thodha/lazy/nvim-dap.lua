@@ -5,9 +5,23 @@ return {
 		{
 			"<F5>",
 			function()
-				require("dap").continue()
+				local dap = require("dap")
+				-- Already debugging: just continue.
+				if dap.session() then
+					dap.continue()
+					return
+				end
+				-- No session: launch the current file directly instead of
+				-- showing the configuration picker.
+				for _, cfg in ipairs(dap.configurations[vim.bo.filetype] or {}) do
+					if cfg.name == "Launch file" then
+						dap.run(cfg)
+						return
+					end
+				end
+				dap.continue()
 			end,
-			desc = "Debug: Enter Debug Mode/Continue",
+			desc = "Debug: Launch file / Continue",
 		},
 		{
 			"<F6>",
@@ -78,6 +92,25 @@ return {
 		-- Set log level for debugging
 		dap.set_log_level("WARN")
 
+		-- Resolve the python that has the project's deps installed: an active
+		-- venv first, then a project-local .venv found by walking up from the
+		-- current file. Mason's own debugpy python does NOT have your project
+		-- modules, so launching with it fails to import them.
+		local function get_python_path()
+			local venv = os.getenv("VIRTUAL_ENV")
+			if venv and venv ~= "" then
+				return venv .. "/bin/python"
+			end
+			local root = vim.fs.root(0, { ".venv", "pyproject.toml", ".git" })
+			if root then
+				local candidate = root .. "/.venv/bin/python"
+				if vim.fn.executable(candidate) == 1 then
+					return candidate
+				end
+			end
+			return "python3"
+		end
+
 		-- Setup mason-nvim-dap
 		require("mason-nvim-dap").setup({
 			automatic_setup = true,
@@ -124,6 +157,11 @@ return {
 				},
 			},
 		})
+
+		-- Launch the debugger with the project venv (the one that has your
+		-- deps installed), not mason's debugpy python. Runs after mason so it
+		-- wins. Select a different venv anytime with <leader>v (venv-selector).
+		require("dap-python").setup(get_python_path())
 
 		-- Auto open/close dapui with debug sessions
 		dap.listeners.after.event_initialized["dapui_config"] = function()
