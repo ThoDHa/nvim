@@ -14,17 +14,11 @@ return {
 	config = function()
 		require("markview").setup({
 			preview = {
-				enable = false,
+				enable = true,
 			},
 			experimental = {
 				check_rtp = false,
 			},
-		})
-		vim.api.nvim_create_autocmd("FileType", {
-			pattern = "markdown",
-			callback = function()
-				pcall(vim.cmd, "Markview Enable")
-			end,
 		})
 	end,
 }
