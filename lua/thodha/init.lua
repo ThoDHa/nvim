@@ -1,8 +1,6 @@
 require("thodha.set")
 require("thodha.remap")
 require("thodha.lazy_init")
--- Automatically reload Neovim configuration on file changes
-local config_path = vim.fn.stdpath("config") -- Path to your Neovim config folder
 
 -- Clear or set colorcolumn based on file type
 vim.api.nvim_create_autocmd("BufReadPost", {
