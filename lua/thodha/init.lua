@@ -2,20 +2,6 @@ require("thodha.set")
 require("thodha.remap")
 require("thodha.lazy_init")
 
--- Clear or set colorcolumn based on file type
-vim.api.nvim_create_autocmd("BufReadPost", {
-	pattern = { "*.py", "*.md", "*" },
-	callback = function()
-		if vim.bo.filetype == "python" then
-			vim.opt.colorcolumn = "101"
-		elseif vim.bo.filetype == "markdown" then
-			vim.opt.colorcolumn = "81"
-		else
-			vim.opt.colorcolumn = ""
-		end
-	end,
-})
-
 -- Workaround for CursorHoldI event to maintain undo levels
 vim.api.nvim_create_autocmd("CursorHoldI", {
 	pattern = { "*" },
