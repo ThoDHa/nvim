@@ -14,6 +14,15 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = "thodha.lazy",
 	change_detection = { notify = false, enabled = true },
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"netrwPlugin",
+				"tutor",
+				"tohtml",
+			},
+		},
+	},
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the
