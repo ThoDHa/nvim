@@ -29,8 +29,10 @@ vim.keymap.set("n", "<leader>l", "<cmd>lprev<CR>zz", { desc = "Location list pre
 
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>Z", "<c-w>_<c-w>|", { desc = "Maximize current window" })
-vim.keymap.set("n", "<leader>z", "<c-w>=", { desc = "Change all windows to same size" })
+vim.keymap.set("n", "<leader>u", "<cmd>packadd nvim.undotree | Undotree<CR>", { desc = "Undo Tree" })
+
+vim.keymap.set("n", "<C-w>Z", "<c-w>_<c-w>|", { desc = "Maximize current window" })
+vim.keymap.set("n", "<C-w>z", "<c-w>=", { desc = "Change all windows to same size" })
 
 vim.keymap.set("n", "[d", function()
 	vim.diagnostic.jump({ count = -1 })
