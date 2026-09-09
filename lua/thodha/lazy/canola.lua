@@ -1,5 +1,6 @@
 return {
-	"stevearc/oil.nvim",
+	"barrettruth/canola.nvim",
+	main = "oil",
 	keys = {
 		{ "<leader>-", function() require("oil").open_float() end, desc = "Open parent directory" },
 	},
@@ -13,7 +14,6 @@ return {
 		},
 		view_options = {
 			show_hidden = true,
-			preview = true,
 		},
 	},
 	-- Optional dependencies
