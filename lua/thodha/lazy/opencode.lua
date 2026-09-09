@@ -3,8 +3,8 @@ return {
 	dependencies = {
 		-- Recommended for `ask()` and `select()`.
 		-- Required for `snacks` provider.
-		---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
-		{ "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
+		-- UI (input/picker/terminal) is configured in `snacks.lua`.
+		{ "folke/snacks.nvim" },
 	},
 	init = function()
 		---@type opencode.Opts
