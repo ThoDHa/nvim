@@ -1,12 +1,13 @@
 return {
 	"rmagatti/auto-session",
-	-- Load when session keymaps are pressed or session commands are used
+	-- Must load eagerly (not on VimEnter): pager detection relies on a
+	-- StdinReadPre handler, which misses stdin when setup runs at VimEnter,
+	-- so e.g. MANPAGER='nvim +Man!' would get a session restore instead.
+	lazy = false,
 	keys = {
 		{ "<leader>Ss", "<cmd>SessionSearch<CR>", desc = "[S]ession [s]earch" },
 	},
 	cmd = { "SessionSave", "SessionRestore", "SessionDelete", "AutoSession" },
-	-- Still load on VimEnter for auto-restore functionality
-	event = "VimEnter",
 	opts = {
 		log_level = "error",
 		auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
