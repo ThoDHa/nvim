@@ -13,8 +13,9 @@ return {
 				end
 				-- No session: launch the current file directly instead of
 				-- showing the configuration picker.
+				local direct_launch = { "Launch file", "LLDB: Launch" }
 				for _, cfg in ipairs(dap.configurations[vim.bo.filetype] or {}) do
-					if cfg.name == "Launch file" then
+					if vim.tbl_contains(direct_launch, cfg.name) then
 						dap.run(cfg)
 						return
 					end
@@ -117,6 +118,7 @@ return {
 			ensure_installed = {
 				"debugpy",
 				"chrome-debug-adapter",
+				"codelldb",
 			},
 			handlers = {},
 		})

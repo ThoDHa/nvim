@@ -16,6 +16,8 @@ return {
 			"typescript",
 			"python",
 			"go",
+			"c",
+			"cpp",
 			"htmldjango",
 			"lua",
 		}

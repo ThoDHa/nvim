@@ -17,6 +17,8 @@
 			lsp_format = "fallback",
 		},
 		formatters_by_ft = {
+			c = { "clang-format" },
+			cpp = { "clang-format" },
 			lua = { "stylua" },
 			python = { "black", "isort" },
 			html = { "djlint" },

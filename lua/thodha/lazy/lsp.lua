@@ -151,7 +151,9 @@ return { -- LSP Configuration & Plugins
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 		local servers = {
-			-- clangd = {},
+			clangd = {
+				cmd = { "clangd", "--background-priority-index" },
+			},
 			-- gopls = {},
 			-- rust_analyzer = {},
 			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -194,6 +196,8 @@ return { -- LSP Configuration & Plugins
 		vim.list_extend(ensure_installed, {
 			"bash-language-server",
 			"black",
+			"clang-format",
+			"codelldb",
 			"debugpy",
 			"djlint",
 			"eslint-lsp",
