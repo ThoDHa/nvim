@@ -1,3 +1,5 @@
+-- nvim-dap: debug adapter protocol client for launching debug sessions
+-- (<F5>), setting breakpoints, and stepping through code.
 return {
 	"mfussenegger/nvim-dap",
 	-- Only load when debugging keymaps are pressed

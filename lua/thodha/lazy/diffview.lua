@@ -1,3 +1,5 @@
+-- diffview.nvim: tabbed diff views for Git status, file history, and
+-- merges.
 return {
 	"sindrets/diffview.nvim",
 	event = "VeryLazy",

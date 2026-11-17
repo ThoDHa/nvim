@@ -1,3 +1,5 @@
+-- blink.cmp: autocompletion engine providing LSP-sourced completion items,
+-- snippet expansion (via friendly-snippets), and insert-mode keymaps.
 return {
 	"saghen/blink.cmp",
 	version = "1.*",

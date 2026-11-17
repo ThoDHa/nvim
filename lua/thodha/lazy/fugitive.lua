@@ -1,3 +1,5 @@
+-- vim-fugitive: Git integration commands (:Git, :G, :Gdiffsplit, ...) for
+-- committing, staging, and browsing history inside Neovim.
 return {
 	"tpope/vim-fugitive",
 	cmd = {

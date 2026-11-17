@@ -1,3 +1,5 @@
+-- trouble.nvim: sidebar list of diagnostics, references, and quickfix
+-- items, opened with <leader>tt or :Trouble.
 return {
 	"folke/trouble.nvim",
 	cmd = "Trouble",

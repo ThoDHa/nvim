@@ -1,3 +1,5 @@
+-- venv-selector.nvim: pick the Python virtualenv to use for LSP and
+-- debugging with <leader>v.
 return {
 	"linux-cultist/venv-selector.nvim",
 	dependencies = {

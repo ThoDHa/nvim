@@ -1,3 +1,5 @@
+-- nvim-lint: runs linters (markdownlint, djlint, ruff, ...) and reports
+-- their diagnostics, triggered by the autocmds in the config below.
 return {
 	"mfussenegger/nvim-lint",
 	event = { "BufReadPre", "BufNewFile" },

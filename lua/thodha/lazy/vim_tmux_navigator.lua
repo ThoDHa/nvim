@@ -1,3 +1,5 @@
+-- vim-tmux-navigator: lets Ctrl-hjkl move seamlessly between Neovim
+-- splits and tmux panes.
 return {
 	"christoomey/vim-tmux-navigator",
 	cmd = {

@@ -1,3 +1,5 @@
+-- grug-far.nvim: interactive global search-and-replace UI, opened with
+-- :GrugFar or its keymap.
 return {
 	"MagicDuck/grug-far.nvim",
 	cmd = "GrugFar",

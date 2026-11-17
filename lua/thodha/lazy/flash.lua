@@ -1,3 +1,4 @@
+-- flash.nvim: quick motion via labeled jumps to any visible text.
 return {
 	"folke/flash.nvim",
 	event = "VeryLazy",

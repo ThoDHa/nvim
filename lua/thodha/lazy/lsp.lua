@@ -1,4 +1,7 @@
-return { -- LSP Configuration & Plugins
+-- LSP: nvim-lspconfig plus mason, which auto-installs the servers,
+-- formatters, and debug adapters listed below, and attaches the configured
+-- servers to buffers as they open.
+return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {

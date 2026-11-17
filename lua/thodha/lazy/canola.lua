@@ -1,3 +1,5 @@
+-- canola.nvim: file manager based on oil.nvim that lets you edit the
+-- filesystem like a normal buffer; open it with <leader>- or :Oil.
 return {
 	"barrettruth/canola.nvim",
 	main = "oil",

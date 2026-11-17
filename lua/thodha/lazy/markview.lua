@@ -1,3 +1,5 @@
+-- markview.nvim: renders markdown buffers with a preview-like appearance
+-- (styled headings, lists, code blocks, links).
 return {
 	"OXY2DEV/markview.nvim",
 	lazy = true,

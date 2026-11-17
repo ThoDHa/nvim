@@ -1,4 +1,6 @@
-return { -- Fuzzy Finder (files, lsp, etc)
+-- telescope.nvim: fuzzy finder over files, buffers, help tags, LSP
+-- symbols, and more, with fzf-native for fast sorting.
+return {
 	"nvim-telescope/telescope.nvim",
 	version = "*", -- Use latest stable release (community recommended)
 	dependencies = {

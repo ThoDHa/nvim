@@ -1,3 +1,6 @@
+-- auto-session: automatically saves and restores a session per working
+-- directory, so reopening Neovim in a project brings back its buffers,
+-- windows, and tabs.
 return {
 	"rmagatti/auto-session",
 	-- Must load eagerly (not on VimEnter): pager detection relies on a

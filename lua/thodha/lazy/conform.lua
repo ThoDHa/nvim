@@ -1,3 +1,5 @@
+-- conform.nvim: runs formatters (stylua, black, clang-format, ...) on
+-- <leader>f, falling back to LSP formatting when a filetype has none.
  return {
  	"stevearc/conform.nvim",
 	keys = {

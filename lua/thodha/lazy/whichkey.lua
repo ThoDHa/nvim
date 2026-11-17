@@ -1,3 +1,5 @@
+-- which-key.nvim: pops up available keymaps after a prefix, with the
+-- labeled groups defined in the opts below.
  return {
  	"folke/which-key.nvim",
  	event = "VeryLazy",

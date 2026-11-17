@@ -1,3 +1,5 @@
+-- harpoon: bookmark a handful of files and jump between them instantly
+-- from any buffer.
 return {
 	"ThePrimeagen/harpoon",
 	branch = "harpoon2",

@@ -1,3 +1,6 @@
+-- nvim-treesitter: installs and maintains tree-sitter parsers, powering
+-- syntax highlighting and related features for the filetypes listed in
+-- the config below.
 return {
 	"nvim-treesitter/nvim-treesitter",
 	branch = "main",

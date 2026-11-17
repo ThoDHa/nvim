@@ -1,3 +1,5 @@
+-- rose-pine: the active colorscheme, loaded eagerly so the UI is themed
+-- before the first draw.
 return {
 	{
 		"rose-pine/neovim",

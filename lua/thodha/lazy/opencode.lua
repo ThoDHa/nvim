@@ -1,3 +1,5 @@
+-- opencode.nvim: sends prompts, files, and selections to the OpenCode AI
+-- coding agent from inside Neovim; its UI comes from snacks.nvim.
 return {
 	"NickvanDyke/opencode.nvim",
 	dependencies = {
